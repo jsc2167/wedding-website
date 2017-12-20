@@ -1,8 +1,9 @@
 from django.conf.urls import url
 from . import views
-import sys
-sys.path.append("..")
-from ..jcam import settings
+
+# import sys
+# sys.path.append("..")
+from jcam import settings
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),
@@ -15,6 +16,6 @@ urlpatterns = [
     # url(r'^rsvp/(?P<slug>[A-Za-z0-9_-]+)/thanks/(?P<guest_id>\d+)/$', views.event_thanks, name='rsvp_event_thanks'),
 ]
 
-urlpatterns += patterns('',
-        (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
-    )
+# urlpatterns += url('',
+#         (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+#     )
