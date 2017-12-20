@@ -18,6 +18,6 @@ from django.contrib import admin
 from django.urls import path
 
 urlpatterns = [
-    path(r'/', include('jcam.weddingsite.urls')),
+    path(r'^/', include('jcam.weddingsite.urls')),
     url(r'^$', views.home, name='home'),
 ]
