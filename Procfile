@@ -1,1 +1,1 @@
-web: gunicorn jcam.jcam.wsgi --log-file -
+web: gunicorn jcam.wsgi --log-file -
