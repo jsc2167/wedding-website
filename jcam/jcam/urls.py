@@ -19,5 +19,4 @@ from django.conf.urls import url
 
 urlpatterns = [
     path(r'/', include('weddingsite.urls')),
-    url(r'^$', views.home, name='home'),
 ]
