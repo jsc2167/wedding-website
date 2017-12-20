@@ -18,7 +18,6 @@ from django.contrib import admin
 from django.urls import path
 
 urlpatterns = [
-    path('/', include('weddingsite.urls')),
+    path(r'/', include('weddingsite.urls')),
     url(r'^$', views.home, name='home'),
-
 ]
