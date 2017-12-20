@@ -5,4 +5,4 @@ from django.apps import AppConfig
 
 
 class BlogConfig(AppConfig):
-    name = 'jcam.weddingsite'
+    name = 'jcam.jcam.weddingsite'
