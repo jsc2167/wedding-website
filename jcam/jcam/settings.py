@@ -52,8 +52,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    # 'weddingsite.apps.BlogConfig',
-    'weddingsite',
+    'weddingsite.apps.BlogConfig',
+    # 'weddingsite',
 ]
 
 MIDDLEWARE = [
