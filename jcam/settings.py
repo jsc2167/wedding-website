@@ -40,6 +40,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     'jsc2167.github.io',
     'salty-inlet-33930.herokuapp.com',
+    'www.ariandjulia.com',
     'ariandjulia.com']
 
 
