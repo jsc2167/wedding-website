@@ -70,7 +70,7 @@ MIDDLEWARE_CLASSES = (
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-ROOT_URLCONF = 'jcam.urls'
+ROOT_URLCONF = 'jcam.jcam.urls'
 
 TEMPLATES = [
     {
