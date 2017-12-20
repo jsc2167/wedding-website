@@ -35,7 +35,11 @@ SECRET_KEY = '1cf8ltv6bzeh*ks1prw+xelx7tj5l02d%_j@ztkli#@q67f(i+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'jsc2167.github.io']
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'jsc2167.github.io',
+    'salty-inlet-33930.herokuapp.com',
+    'ariandjulia.com']
 
 
 # Application definition
