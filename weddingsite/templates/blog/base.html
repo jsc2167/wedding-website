@@ -9,15 +9,29 @@
 
         <script>
         function openNav() {
-          document.getElementById("mySidenav").style.width = "250px";
+          document.getElementById(".sidenav:hover").style.width = "250px";
         }
         function triggerHover() {
-          $("#mySidenav").trigger("hover");
+          $(".sidenav:hover").trigger("hover");
         }
         function closeNav() {
-          document.getElementById("mySidenav").style.width = "0px";
+          document.getElementById(".sidenav:hover").style.width = "0px";
         }
         </script>
+        <style type="text/css">
+            .sidenav a {
+              text-decoration: none;
+              color: #000000;
+            }
+
+            .sidenav a:hover {
+              text-decoration: none;
+              color: #5F91E8;
+              transition: 0.3s;
+            }
+        </style>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
 
   <body>
@@ -28,21 +42,34 @@
     </div>
     {% endblock %}
 
-          <div id="mySidenav" class="sidenav">
+          <div class="sidenav">
             <span class="hamburger">
               <h1>
                 &#9776;
               </h1>
             </span>
+
+            <span class="closebtn"
+              onclick="closeNav()">
+                &times;
+            </span>
+
             <span class="menu">
               <nav>
-                <a href="{% url 'home' %}">Home</a><br  />
-                <a href="{% url 'about' %}">About Us</a><br  />
-                <a href="{% url 'hotels' %}">Travel and Lodging</a><br  />
-                <a href="{% url 'registry' %}">Registry</a><br  />
-                <a href="{% url 'photos' %}">Wedding Party</a><br  />
+                  <a href="{% url 'home' %}">Home</a><br  />
+                  <hr style="height:10px; visibility:hidden;" />
+                  <a href="{% url 'about' %}">About Us</a><br  />
+                  <hr style="height:10px; visibility:hidden;" />
+                  <a href="{% url 'hotels' %}">Travel and Lodging</a><br  />
+                  <hr style="height:10px; visibility:hidden;" />
+                  <a href="{% url 'registry' %}">Registry</a><br  />
+                  <hr style="height:10px; visibility:hidden;" />
+                  <a href="{% url 'photos' %}">Wedding Party</a><br  />
               </nav>
             </span>
+
+            <span class="hamburger-mobile" onclick="openNav()">&#9776;</span>
+
           </div>
 
 
@@ -51,4 +78,8 @@
             {% endblock %}
     </div>
 </body>
+
+<footer>
+  <span>©️Julia Caine 2017</span>
+</footer>
 </html>
