@@ -153,7 +153,7 @@ p {
 }
 
 .hamburger {
-  text-align: right;
+  text-align: left;
 }
 
 .hamburger-mobile {
@@ -175,7 +175,7 @@ p {
     top: 185px;
     font-family: 'Spectral SC', 'Raleway', 'Vollkorn SC', 'Dancing Script';
     text-decoration-color: #000000;
-    line-height: 5px;
+    line-height: auto;
     background: rgba(204, 204, 204, 0);
     overflow-x: hidden;
     padding-top: 60px;
@@ -201,20 +201,83 @@ p {
   display: none;
 }
 
-.sidenav .closebtn {
-  display: none;
-}
-
 .closebtn {
   display: none;
 }
 
-@media screen and (max-width: 760px) {
-  .sidenav {
-
+a {
+  color: #000000;
 }
 
-  .sidenav:hover {
+@media screen and (max-width: 760px) {
+
+  .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+      font-size: 20pt;
+      padding-left: 2px;
+  }
+
+  .page-header {
+    padding-top: 20px;
+    max-height: 20px;
+  }
+
+  h1, h2, h3, h4 {
+    padding-top: 0px;
+    margin-top: .1em;
+    margin-bottom: .1em;
+  }
+
+  /*.hamburger-mobile {
+    text-align: left;
+    display: flex;
+  }*/
+
+  .sidenav {
+      height: 100%;
+      width: 0px;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: -20;
+      background-color: #D2D5D6;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding: 100px 8px 8px 3px;
+      text-decoration: none;
+  }
+
+  .sidenav a {
+      padding: 8px 8px 8px 20px;
+      text-decoration: none;
+      font-family: 'Spectral SC', 'Raleway', 'Vollkorn SC', 'Dancing Script';
+      font-size: 12pt;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+  }
+
+  .sidenav .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+
+    #mySidenav {
+    padding: 100px 8px 8px 20px;
+    text-decoration: none;
+    font-family: 'Spectral SC', 'Raleway', 'Vollkorn SC', 'Dancing Script';
+    font-size: 12pt;
+    list-style: none;
+    text-decoration-color: #000000;
+    display: block;
+    transition: 0.5s;
+    background-color: #D2D5D6;
+    line-height: normal;
+  }
+/*
+  .sidenav {
       width: 100px;
       padding: 100px 8px 8px 3px;
       font-size: 12pt;
@@ -229,8 +292,4 @@ p {
       margin-left: 50px;
   }
   .sidenav a {font-size: 18px;}
-}
-
-a {
-  color: #000000;
-}
+}*/

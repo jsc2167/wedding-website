@@ -2,22 +2,39 @@
 <html>
     <head>
         <title>A+J</title>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
         <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Raleway|Spectral+SC|Vollkorn+SC" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
         <link rel="icon" href="http://www.pvhc.net/img240/vxmyxqmneygccdrcfzfz.png">
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 
+        <!-- js attempt to make sidenav come out when you click on the hamburger-mobile -->
         <script>
         function openNav() {
-          document.getElementById(".sidenav:hover").style.width = "250px";
+          document.getElementById("mysidenav").style.width = "100px";
         }
-        function triggerHover() {
-          $(".sidenav:hover").trigger("hover");
-        }
+
         function closeNav() {
-          document.getElementById(".sidenav:hover").style.width = "0px";
+          document.getElementById("mysidenav").style.width = "0px";
         }
         </script>
+        <!-- end of JS attempt -->
+
+        <!-- jquery attempt to make the hamburger-mobile trigger the sidenav -->
+        <script>
+          $(window).load(function() {
+            $('#mysidenav').slidereveal({
+              trigger: $('.hamburger-mobile')
+            })
+          });
+        </script>
+        <!-- end of jquery attempt -->
+
+        <!-- make nav words turn from black to blue when you hover over them -->
         <style type="text/css">
             .sidenav a {
               text-decoration: none;
@@ -30,8 +47,10 @@
               transition: 0.3s;
             }
         </style>
+        <!-- end nav words turning blue code -->
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- line of code needed to allow different views between desktop and mobile -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
 
   <body>
@@ -42,17 +61,21 @@
     </div>
     {% endblock %}
 
-          <div class="sidenav">
-            <span class="hamburger">
+
+
+          <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+            <!-- <span class="hamburger-mobile"
+              onclick="openNav()">
               <h1>
                 &#9776;
               </h1>
-            </span>
-
-            <span class="closebtn"
+            </span> -->
+            <!-- <span class="closebtn"
               onclick="closeNav()">
                 &times;
-            </span>
+            </span> -->
 
             <span class="menu">
               <nav>
@@ -68,15 +91,37 @@
               </nav>
             </span>
 
-            <span class="hamburger-mobile" onclick="openNav()">&#9776;</span>
+            <!-- <span class="hamburger-mobile" onclick="openNav()">&#9776;</span> -->
 
           </div>
 
+          <span class="hamburger" onclick="openNav()">
+            <h1>
+              &#9776;
+            </h1>
+          </span>
+
+          <script>
+          function openNav() {
+            document.getElementById("mySidenav").style.width = "100px";
+          }
+
+          function closeNav() {
+            document.getElementById("mySidenav").style.width = "0px";
+          }
+          </script>
 
     <div class="center">
             {% block content %}
             {% endblock %}
     </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
 </body>
 
 <footer>
