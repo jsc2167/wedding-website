@@ -1,0 +1,129 @@
+h1, h2, h3, h4 {
+    font-family: 'Spectral SC', 'Raleway', 'Vollkorn SC', 'Dancing Script';
+}
+
+p {
+    font-size: 16pt;
+    font-family: 'Raleway', 'Vollkorn SC', 'Dancing Script';
+    font-size: 1.1em;
+    font-weight: 300;
+    color: "black";
+}
+
+a {
+  color: #3AE8E8;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #5F91E8;
+}
+
+body {
+    text-align: center;
+    margin: 0;
+    font-family: 'Raleway', 'Vollkorn SC', 'Dancing Script';
+}
+
+.page-header {
+  background-image: url(https://imgur.com/cV7Tj6R.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  display: block;
+  width: 100%;
+  max-height: 20%;
+  margin: 0px 0px 0px 0px;
+  padding: 50px;
+  text-align: left;
+  font-size: 36pt;
+  text-decoration-color: "white";
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #000000;
+    font-size: 48pt;
+    text-decoration: none;
+    padding-left: 100px;
+}
+
+/*.hamburger {
+  text-align: left;
+}
+
+.sidenav {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    left: -220px;
+    top: 185px;
+    font-family: 'Spectral SC', 'Raleway', 'Vollkorn SC', 'Dancing Script';
+    text-decoration-color: #000000;
+    line-height: auto;
+    background: rgba(204, 204, 204, 0);
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+}
+
+.sidenav:hover {
+    width: 250px;
+    padding: 60px 8px 8px 32px;
+    left: 0;
+    top: 0;
+    text-decoration: none;
+    font-family: 'Spectral SC', 'Raleway', 'Vollkorn SC', 'Dancing Script';
+    font-size: 20pt;
+    list-style: none;
+    text-decoration-color: #000000;
+    display: block;
+    transition: 0.5s;
+    background-color: #D2D5D6;
+}
+
+.sidenav:hover .hamburger {
+  display: none;
+}*/
+
+.wrapper {
+    display: flex;
+    align-items: stretch;
+}
+
+#hamburger {
+  text-align: left;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+    background: #CCCCCC;
+    color: #000000;
+    transition: all 0.3s;
+}
+
+#sidebar.active {
+    margin-left: 0px;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+}
+
+#sidebar ul p {
+    color: #000000;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+    color: #000000;
+}
+#sidebar ul li a:hover {
+    color: #000000;
+    background: #fff;
+}
