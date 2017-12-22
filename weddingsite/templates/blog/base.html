@@ -26,8 +26,8 @@
 
         <!-- jquery attempt to make the hamburger-mobile trigger the sidenav -->
         <script>
-          $(window).load(function() {
-            $('#mysidenav').slidereveal({
+          $(document).ready(function() {
+            $('#mysidenav').slidereveal(function(){
               trigger: $('.hamburger-mobile')
             })
           });
@@ -49,8 +49,6 @@
         </style>
         <!-- end nav words turning blue code -->
 
-        <!-- line of code needed to allow different views between desktop and mobile -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
 
   <body>
