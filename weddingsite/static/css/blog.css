@@ -53,6 +53,12 @@ body {
   border-radius: 25px;
 }
 
+.image4 {
+  width: 100%;
+  height: auto;
+  border-radius: 25px;
+}
+
 .container2 {
 	clear:left;
 	float:left;
@@ -96,25 +102,24 @@ body {
 }
 
 .page-header {
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
   background-image: url(https://imgur.com/cV7Tj6R.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  display: block;
   max-height: 165px;
   min-width: 100%;
   margin: 0px 0px 0px 0px;
-  padding: 50px;
+  padding: 3rem 0px 3rem 0px;
   text-align: left;
   font-size: 36pt;
-  text-decoration-color: "white";
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
-    color: #white;
-    font-size: 48pt;
+    color: #ffffff;
+    font-size: 4rem;
     text-decoration: none;
-    padding-left: 100px;
+
+    padding-left: 90px;
 }
 
 .center {
@@ -209,11 +214,20 @@ a {
   color: #000000;
 }
 
+@media screen and (min-width: 760px){
+  .vcenter {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      float: none;
+  }
+}
+
 @media screen and (max-width: 760px) {
 
   .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
       font-size: 20pt;
-      padding-left: 2px;
+      padding-left: 10px;
   }
 
   .page-header {
