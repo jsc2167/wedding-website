@@ -1,30 +1,44 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+{% load static %}
 
 <h1>Registry</h1>
 
-<div class="clearfix3">
-  <h3>Donating to charities</h3>
-      <img class="image2" src="https://imgur.com/mDFeXz0.png">
-      <p>We are fortunate enough to have everything we need. A contribution to your favorite charity in our honor is a wonderful way to commemorate our special day. We have listed a few of our favorite charities below. All of our chosen charities have been recognized for using their donations effectively.</p>
+<br />
 
-      <p><a href="https://secure.ucsusa.org/onlineactions/dR5QqmX2uUCLCFD1KkVEzg2?MS=topnav">Union of Concerned Scientists</a>
+<div class="row">
+  <div class="col-sm-8 col-md-8 vcenter">
+    <span><h3>Donating to charities</h3>
+    <p>We are fortunate enough to have everything we need. A contribution to your favorite charity in our honor is a wonderful way to commemorate our special day. We have listed a few of our favorite charities below. All of our chosen charities have been recognized for using their donations effectively.</p>
 
-      <p>The Union of Concerned Scientists focuses on applying scientific research and methods to develop and implement innovative, practical solutions to the Earth's most pressing problems, from slowing climate change to developing sustainible agriculture and transportation.</p>
+    <p><a href="https://secure.ucsusa.org/onlineactions/dR5QqmX2uUCLCFD1KkVEzg2?MS=topnav">Union of Concerned Scientists</a>
 
-      <p><a href="https://www.eff.org/">The Electronic Frontier Foundation</a>
+    <p>The Union of Concerned Scientists focuses on applying scientific research and methods to develop and implement innovative, practical solutions to the Earth's most pressing problems, from slowing climate change to developing sustainible agriculture and transportation.</p>
 
-      <p>The EFF is a nonprofit working to defend equal access to the internet. Currently, their main project is reinstating net neutrality, which kept access to all parts of the internet equally available.</p>
+    <p><a href="https://www.eff.org/">The Electronic Frontier Foundation</a>
 
+    <p>The EFF is a nonprofit working to defend equal access to the internet. Currently, their main project is reinstating net neutrality, which kept access to all parts of the internet equally available.</p>
+    </span>
+  </div>
+  <div class="col-sm-4 col-md-4 vcenter">
+    <img class="image4" src="{% static 'photos/2017_Nov_SF2.jpg' %}" alt="https://imgur.com/mDFeXz0.png">
+  </div>
 </div>
 
-<div class="clearfix3">
-  <h3>Registries</h3>
-      <img class="image1" src="https://imgur.com/FwQoPed.png">
+<br />
+
+<div class="row">
+  <div class="col-sm-4 col-md-4 vcenter">
+    <img class="image4" src="{% static 'photos/2016_Sept_Oxford.jpg' %}" alt="https://imgur.com/FwQoPed.png">
+  </div>
+  <div class="col-sm-8 col-md-8 vcenter">
+    <span><h3>Registries</h3>
       <p>If you would like to give a gift, we are registered at amazon.co.uk. If you decided to give a donation to a charity in our name, please don't also get us a physical gift!</p>
       <p><a href="https://www.amazon.co.uk/registry/wedding/NEQH2OIMIMFV/ref=cm_sw_r_cp_ep_wr_dKnkAbETXH2R8">Amazon UK</a>
       <p>Please note that Amazon UK and Amazon US are two different companies. Gift cards to one cannot be applied to the other. Amazon UK charges in pounds, so if you wish to buy from them, make sure you have a credit card that does not charge foreign exchange fees, and then check out in pounds through Amazon (not dollars!).</p>
+    </span>
+  </div>
 </div>
 
 {% endblock %}

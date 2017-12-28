@@ -21,84 +21,46 @@ body {
   display: flex;
 }
 
-.more-space-paragraph {
-  padding-bottom: 50px;
-  padding-top: 05px;
-}
-
-.image1 {
-  float: right;
-  margin-left: 15px;
-  height: auto;
-  width: auto;
-  max-height: 300px;
-  border-radius: 25px;
-}
-
-.image2 {
-  float: left;
-  margin-right: 15px;
-  height: auto;
-  width: auto;
-  max-height: 300px;
-  border-radius: 25px;
-}
-
 .image3 {
   float: left;
   margin-right: 15px;
   height: auto;
   width: auto;
-  max-height: 800px;
+  max-height: 600px;
   border-radius: 25px;
 }
 
 .image4 {
-  width: 100%;
+  max-width: 100%;
   height: auto;
   border-radius: 25px;
+  padding: 0 15px 0 15px;
+  max-height: 400px;
+  width: auto;
 }
 
-.container2 {
-	clear:left;
-	float:left;
-	width:100%;
-	overflow:hidden;
-  background-color: "white";
+.rotate_90 {
+  transform:          rotate(90deg);
+  -ms-transform:      rotate(90deg);
+  -moz-transform:     rotate(90deg);
+  -webkit-transform:  rotate(90deg);
+  -o-transform:       rotate(90deg);
 }
 
-.container1 {
-	float:left;
-	width:100%;
-	position:relative;
-	right:50%;
-  background-color: "white";
+.rotate_180 {
+  transform:          rotate(180deg);
+  -ms-transform:      rotate(180deg);
+  -moz-transform:     rotate(180deg);
+  -webkit-transform:  rotate(180deg);
+  -o-transform:       rotate(180deg);
 }
 
-.col1 {
-	float:left;
-	width:46%;
-	position:relative;
-	left:52%;
-	overflow:hidden;
-  background-color: "white";
-  font-size: 16;
-}
-.col2 {
-	float:left;
-	width:46%;
-	position:relative;
-	left:56%;
-	overflow:hidden;
-  background-color: "white";
-  font-size: 16;
-}
-
-.clearfix3 {
-  overflow: auto;
-  font-family: 'Raleway', 'Vollkorn SC', 'Dancing Script';
-  font-size: 16pt;
-  width: 100%;
+.rotate_270 {
+  transform:          rotate(270deg);
+  -ms-transform:      rotate(270deg);
+  -moz-transform:     rotate(270deg);
+  -webkit-transform:  rotate(270deg);
+  -o-transform:       rotate(270deg);
 }
 
 .page-header {
@@ -106,7 +68,7 @@ body {
   background-size: cover;
   -o-background-size: cover;
   background-image: url(https://imgur.com/cV7Tj6R.png);
-  max-height: 165px;
+  max-height: 200px;
   min-width: 100%;
   margin: 0px 0px 0px 0px;
   padding: 3rem 0px 3rem 0px;
@@ -122,23 +84,19 @@ body {
     padding-left: 90px;
 }
 
-.center {
-    margin: auto;
-    width: 90%;
-    padding: 10px;
-}
-
 .content {
     margin-left: 40px;
 }
 
 h1, h2, h3, h4 {
     font-family: 'Spectral SC', 'Raleway', 'Vollkorn SC', 'Dancing Script';
+    display:block;
 }
 
 p {
     font-size: 16pt;
     font-family: 'Raleway', 'Vollkorn SC', 'Dancing Script';
+    display:block;
 }
 
 .top-menu, .top-menu:hover, .top-menu:visited {
@@ -188,13 +146,13 @@ p {
 }
 
 .sidenav:hover {
-    width: 250px;
+    width: 30%;
     padding: 60px 8px 8px 32px;
     left: 0;
     top: 0;
     text-decoration: none;
     font-family: 'Spectral SC', 'Raleway', 'Vollkorn SC', 'Dancing Script';
-    font-size: 20pt;
+    font-size: 2rem;
     list-style: none;
     text-decoration-color: #000000;
     display: block;
@@ -211,7 +169,39 @@ p {
 }
 
 a {
-  color: #000000;
+  color: #CA9BFA);
+}
+
+#container_wide {
+  width: 100%;
+  display: block;
+}
+
+.container{
+    width: 50%;
+}
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+.middle {
+  display: block;
+  margin: auto;
+}
+
+.center {
+    margin: auto;
+    width: 90%;
+    padding: 10px;
+}
+
+#floated{
+    width: 50%;
 }
 
 @media screen and (min-width: 760px){
@@ -221,9 +211,14 @@ a {
       align-items: center;
       float: none;
   }
+
+  .more-space-paragraph {
+    padding-bottom: 50px;
+    padding-top: 50px;
+  }
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 770px) {
 
   .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
       font-size: 20pt;
@@ -241,10 +236,25 @@ a {
     margin-bottom: .1em;
   }
 
-  /*.hamburger-mobile {
-    text-align: left;
-    display: flex;
-  }*/
+  h1 {
+    font-size: 20;
+  }
+
+  h2 {
+    font-size: 18;
+  }
+
+  h3 {
+    font-size: 16;
+  }
+  p {
+    font-size: 14;
+  }
+
+  .image3 {
+    max-width: 100%;
+    height: auto;
+  }
 
   .sidenav {
       height: 100%;
@@ -252,19 +262,18 @@ a {
       position: fixed;
       z-index: 1;
       top: 0;
-      left: -20;
+      left: -29;
       background-color: #D2D5D6;
       overflow-x: hidden;
       transition: 0.5s;
-      padding: 100px 8px 8px 3px;
+      padding: 100px 0px 8px 3px;
       text-decoration: none;
   }
 
   .sidenav a {
-      padding: 8px 8px 8px 20px;
+      padding: 8px 0px 8px 20px;
       text-decoration: none;
       font-family: 'Spectral SC', 'Raleway', 'Vollkorn SC', 'Dancing Script';
-      font-size: 12pt;
       color: #818181;
       display: block;
       transition: 0.3s;
@@ -290,20 +299,3 @@ a {
     background-color: #D2D5D6;
     line-height: normal;
   }
-/*
-  .sidenav {
-      width: 100px;
-      padding: 100px 8px 8px 3px;
-      font-size: 12pt;
-      line-height: normal;
-  }
-
-  .closebtn {
-      position: absolute;
-      top: 0;
-      right: 25px;
-      font-size: 36px;
-      margin-left: 50px;
-  }
-  .sidenav a {font-size: 18px;}
-}*/
