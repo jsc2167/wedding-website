@@ -57,7 +57,6 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     # 'weddingsite.apps.WeddingsiteConfig',
     'weddingsite',
-    'freeze',
 ]
 
 MIDDLEWARE = [
