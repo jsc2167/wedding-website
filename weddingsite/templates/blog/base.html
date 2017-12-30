@@ -25,25 +25,25 @@
         <!-- end of JS attempt -->
 
         <!-- jquery attempt to make the hamburger-mobile trigger the sidenav -->
-        <script>
+        <!-- <script>
           $(window).load(function() {
             $('#mysidenav').slidereveal({
               trigger: $('.hamburger-mobile')
             })
           });
-        </script>
+        </script> -->
         <!-- end of jquery attempt -->
 
         <!-- make nav words turn from black to blue when you hover over them -->
         <style type="text/css">
             .sidenav a {
               text-decoration: none;
-              color: #000000;
+              color: #FFFFFF;
             }
 
             .sidenav a:hover {
               text-decoration: none;
-              color: #5F91E8;
+              color: #141F2F;
               transition: 0.3s;
             }
         </style>
@@ -56,8 +56,10 @@
   <body>
       {% block title %}
 
-    <div class="page-header">
-        <h1><a href="/">Julia and Ari</a></h1>
+    <div class="page-header" >
+        <h1>
+          <a href="/">Julia and Ari</a>
+        </h1>
     </div>
     {% endblock %}
 
@@ -65,35 +67,17 @@
 
           <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-
-            <!-- <span class="hamburger-mobile"
-              onclick="openNav()">
-              <h1>
-                &#9776;
-              </h1>
-            </span> -->
-            <!-- <span class="closebtn"
-              onclick="closeNav()">
-                &times;
-            </span> -->
-
             <span class="menu">
               <nav>
-                  <a href="{% url 'home' %}">Home</a><br  />
-                  <hr style="height:10px; visibility:hidden;" />
-                  <a href="{% url 'about' %}">About Us</a><br  />
-                  <hr style="height:10px; visibility:hidden;" />
-                  <a href="{% url 'hotels' %}">Travel and Lodging</a><br  />
-                  <hr style="height:10px; visibility:hidden;" />
-                  <a href="{% url 'registry' %}">Registry</a><br  />
-                  <hr style="height:10px; visibility:hidden;" />
-                  <a href="{% url 'photos' %}">Wedding Party</a><br  />
+                  <a href="{% url 'home' %}">Home</a>
+                  <a href="{% url 'about' %}">About Us</a>
+                  <a href="{% url 'hotels' %}">Travel and Lodging</a>
+                  <a href="{% url 'registry' %}">Registry</a>
+                  <a href="{% url 'photos' %}">Wedding Party</a>
               </nav>
             </span>
-
-            <!-- <span class="hamburger-mobile" onclick="openNav()">&#9776;</span> -->
-
           </div>
+
 
           <span class="hamburger" onclick="openNav()">
             <h1>
@@ -103,18 +87,19 @@
 
           <script>
           function openNav() {
-            document.getElementById("mySidenav").style.width = "200px";
+            document.getElementById("mySidenav").style.width = "85%";
           }
 
           function closeNav() {
-            document.getElementById("mySidenav").style.width = "0px";
+            document.getElementById("mySidenav").style.width = "0%";
+            document.getElementById("mySidenav").style.left = "-40";
           }
           </script>
 
-    <div class="center">
+      <div class="center" >
             {% block content %}
             {% endblock %}
-    </div>
+      </div>
 
 
 
@@ -125,6 +110,6 @@
 </body>
 
 <footer>
-  <span>"Like the best baked goods, this website was made from scratch by Julia" --Ari</span>
+  <span>"Like all the best baked goods, this website was made from scratch by Julia" --Ari</span>
 </footer>
 </html>

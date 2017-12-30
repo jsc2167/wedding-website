@@ -57,3 +57,6 @@ def rsvp(request):
 
 def photos(request):
     return render(request, 'blog/photos.html')
+
+def error(request):
+    return render(request, 'blog/error.html')
