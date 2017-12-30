@@ -1,22 +1,39 @@
 h1 a {
     color: #FFFFFF;
     font-family: 'Spectral SC', 'Raleway', 'Vollkorn SC', 'Dancing Script';
+    text-align: center;
 }
 
 body {
-    text-align: center;
+    text-align: left;
     margin: 0;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    justify-content: space-between;
+}
+
+html,body {
+   height:100%;
 }
 
 footer {
   font-family: 'Raleway', 'Vollkorn SC', 'Dancing Script';
   background: linear-gradient(+45deg, #414E5E, #A1B7CD);
-  padding: 1rem 0 1rem 0;
+  height: 2rem;
   color: #FFFFFF;
-  position: fixed;
-  bottom: 0;
+  position: relative;
+  display: inline-block;
   width: 100%;
+  text-align: center;
+  padding-top: 1em;
+  padding-bottom: 2.5em;
+}
+
+.content {
+  flex: 1 0 auto;
+  min-height: 100%;
 }
 
 .centered-text {
@@ -30,6 +47,10 @@ footer {
 .paragraph {
   padding-bottom: 50px;
   display: flex;
+}
+
+.img-center {
+  margin:0 auto;
 }
 
 .image1 {
@@ -46,7 +67,6 @@ footer {
 
 .image3 {
   float: left;
-  margin-right: 15px;
   height: auto;
   width: auto;
   max-height: 600px;
@@ -96,7 +116,7 @@ footer {
   -o-background-size: cover;
   max-height: 200px;
   min-width: 100%;
-  margin: 0px 0px 0px 0px;
+  margin: 0px 0px 2% 0px;
   padding: 6rem 0px 6rem 0px;
   text-align: left;
 }
@@ -107,6 +127,7 @@ footer {
     text-decoration: none;
     padding-left: 90px;
     width: 100%;
+    text-align: left;
 }
 
 .content {
@@ -116,6 +137,7 @@ footer {
 h1, h2, h3, h4 {
     font-family: 'Spectral SC', 'Raleway', 'Vollkorn SC', 'Dancing Script';
     display:block;
+    text-align: center;
 }
 
 p {
@@ -142,12 +164,8 @@ p {
 .hamburger {
   text-align: left;
   z-index: 2;
+  font-size: 3rem;
 }
-
-/*.hamburger-mobile {
-  text-align: right;
-  display: none;
-}*/
 
 .menu {
   text-align: center;
@@ -158,8 +176,13 @@ p {
   display: block;
 }
 
-.container{
+#container{
     width: 50%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
 }
 
 .right {
@@ -179,19 +202,22 @@ p {
     margin: auto;
     width: 90%;
     padding: 10px;
+    position: relative;
+    top: -10%;
 }
 
 #floated{
     width: 50%;
 }
 
+.vcenter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    float: none;
+}
 @media screen and (min-width: 1025px){
-  .vcenter {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      float: none;
-  }
+
 
   .more-space-paragraph {
     padding-bottom: 50px;
@@ -202,7 +228,7 @@ p {
       height: 100%;
       width: 250px;
       position: fixed;
-      z-index: 1;
+      z-index: 3;
       left: -220px;
       top: 185px;
       font-family: 'Spectral SC', 'Raleway', 'Vollkorn SC', 'Dancing Script';
@@ -254,11 +280,14 @@ p {
 
 /*ipad*/
 @media only screen and (min-width : 768px) and (max-width : 1024px) {
+  .page-header {
+    margin-bottom: 5%;
+  }
   .sidenav {
       height: 100%;
       width: 0px;
       position: fixed;
-      z-index: 1;
+      z-index: 3;
       overflow-x: hidden;
   }
   .sidenav a {
@@ -322,13 +351,15 @@ p {
     border-radius: 25px;
     margin-left: 30%;
     padding-bottom: 2%;
+    float: none;
   }
   .sidenav {
       height: 100%;
       width: 0px;
       position: fixed;
-      z-index: 1;
+      z-index: 3;
       overflow-x: hidden;
+      left: -30;
   }
   .sidenav a {
       padding-top: 0.05rem;
@@ -344,7 +375,7 @@ p {
   }
   .sidenav .closebtn {
       position: absolute;
-      top: -1.5rem;
+      top: -0.5rem;
       right: 25px;
       font-size: 5rem;
       margin-left: 50px;
@@ -362,7 +393,8 @@ p {
   }
 }
 
-@media screen and (max-width: 760px) {
+/*iphone vertical*/
+@media only screen and (min-width : 375px) and (max-width : 667px) and (orientation : portrait) {
 
   .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
       font-size: 1.5em;
@@ -374,6 +406,7 @@ p {
     max-height: 10%;
     width: 100%;
     background-image: url('capri_short_crop.png');
+    margin-bottom: 5%;
   }
 
   h1, h2, h3, h4 {
@@ -397,16 +430,19 @@ p {
     font-size: 0.9em;
   }
 
+
+
   .image3 {
-    max-width: 100%;
+    max-width: 90%;
     height: auto;
+    margin-left: 15px;
   }
 
   .sidenav {
       height: 100%;
       width: 0px;
       position: fixed;
-      z-index: 1;
+      z-index: 3;
       top: 0;
       left: -29;
       background-color: #D2D5D6;
@@ -437,8 +473,12 @@ p {
       margin-left: 50px;
     }
 
-    .hamburger h1 {
-      font-size: 2.5rem;
+    .hamburger {
+      font-size: 2rem;
+    }
+
+    h1 {
+      padding-top: 5%;
     }
 
     #mySidenav {
@@ -450,6 +490,14 @@ p {
     transition: 0.5s;
     background: linear-gradient(+45deg, #414E5E, #A1B7CD);
     line-height: normal;
+  }
+
+  footer {
+    height: 4rem;
+    font-size: 0.8em;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 20px;
   }
 
 }
