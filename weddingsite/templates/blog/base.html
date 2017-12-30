@@ -79,7 +79,8 @@
           </div>
 
 
-          <span class="hamburger" onclick="openNav()">
+    <!-- <div id="container_wide" style="position:relative;"> -->
+          <span class="hamburger" style="position:absolute; top:0; left:0;" onclick="openNav()">
             <h1>
               &#9776;
             </h1>
@@ -96,10 +97,11 @@
           }
           </script>
 
-      <div class="center" >
+      <div class="center" style="position:absolute; top:0; left:0;">
             {% block content %}
             {% endblock %}
       </div>
+  <!-- </div> -->
 
 
 
