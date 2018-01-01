@@ -218,7 +218,6 @@ p {
 }
 @media screen and (min-width: 1025px){
 
-
   .more-space-paragraph {
     padding-bottom: 50px;
     padding-top: 50px;
@@ -251,6 +250,7 @@ p {
       background: linear-gradient(+45deg, #414E5E, #A1B7CD);
       display: block;
       transition: 0.3s;
+      box-shadow: 8px 0px 20px #414E5E;
   }
 
   .sidenav a {
@@ -313,12 +313,13 @@ p {
       font-size: 2.5rem;
     }
     #mySidenav {
-    font-family: 'Spectral SC', 'Raleway', 'Vollkorn SC', 'Dancing Script';
-    list-style: none;
-    display: block;
-    transition: 0.5s;
-    background: linear-gradient(+45deg, #414E5E, #A1B7CD);
-    height: 100%;
+      font-family: 'Spectral SC', 'Raleway', 'Vollkorn SC', 'Dancing Script';
+      list-style: none;
+      display: block;
+      transition: 0.5s;
+      background: linear-gradient(+45deg, #414E5E, #A1B7CD);
+      height: 100%;
+      box-shadow: 8px 0px 20px #414E5E;
     }
     .sidenav .closebtn {
       position: absolute;
@@ -359,7 +360,7 @@ p {
       position: fixed;
       z-index: 3;
       overflow-x: hidden;
-      left: -30;
+      left: -50px;
   }
   .sidenav a {
       padding-top: 0.05rem;
@@ -390,6 +391,7 @@ p {
     display: block;
     transition: 0.5s;
     background: linear-gradient(+45deg, #414E5E, #A1B7CD);
+    box-shadow: 8px 0px 20px #414E5E;
   }
 }
 
@@ -430,8 +432,6 @@ p {
     font-size: 0.9em;
   }
 
-
-
   .image3 {
     max-width: 90%;
     height: auto;
@@ -444,7 +444,7 @@ p {
       position: fixed;
       z-index: 3;
       top: 0;
-      left: -29;
+      left: -50px;
       background-color: #D2D5D6;
       overflow-x: hidden;
       transition: 0.5s;
@@ -489,6 +489,7 @@ p {
     display: block;
     transition: 0.5s;
     background: linear-gradient(+45deg, #414E5E, #A1B7CD);
+    box-shadow: 8px 0px 20px #414E5E;
     line-height: normal;
   }
 
