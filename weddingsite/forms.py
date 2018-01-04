@@ -20,7 +20,8 @@ COOL_KIDS_ALL = ['rebecca caine', 'john light', 'ben caine', 'anna caine']
 
 POM_WEDDING = ['raphael koster', 'avi ruderman', 'priya ruderman',
 'francis song', 'sam ritter', 'samuel ritter', 'cotie long', 'kim stachenfeld',
-'kimberly stachenfeld', 'neil rabinowitz', 'jo rabinowitz',]
+'kimberly stachenfeld', 'neil rabinowitz', 'jo rabinowitz', 'sonia rego',
+'matt kusner', 'matthew kusner']
 
 SILK_W_S_AM = ['claire caine', 'dan caine', 'daniel caine', 'jerome socolovsky',
 'petra glimaker', 'emanuel socolovsky', 'shoshi socolovsky', 'shosh socolovsky',
@@ -47,6 +48,8 @@ ALEX = ['alex trott', 'alexander trott']
 CHEESE_W_AM_PM = ['dahlia greenbaum', 'daniel greenbaum',]
 
 JULIA = ['julia caine']
+
+ARI = ['ari morcos']
 
 
 class NameForm(forms.Form):
@@ -80,6 +83,8 @@ class NameForm(forms.Form):
             new_page = '/cheese/'
         elif cleaned_name in JULIA:
             new_page = '/julia/'
+        elif cleaned_name in ARI:
+            new_page = '/ari/'
         else:
             new_page = '/nameerror/'
         return new_page

@@ -115,6 +115,9 @@ def activities(request):
 def julia(request):
     return render(request, 'blog/julia.html')
 
+def ari(request):
+    return render(request, 'blog/ari.html')
+
 def nameerror(request):
     if request.method == 'POST':
         form = NameForm(request.POST)

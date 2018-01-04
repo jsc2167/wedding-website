@@ -26,7 +26,8 @@ urlpatterns = [
     url(r'^alex/$', views.alex, name='alex'),
     url(r'^cheese/$', views.cheese, name='cheese'),
     url(r'^activities/$', views.activities, name='activities'),
-    url(r'^julia/$', views.julia, name='julia'),  
+    url(r'^julia/$', views.julia, name='julia'),
+    url(r'^ari/$', views.ari, name='ari'),  
 # url(r'^rsvp/(?P<slug>[A-Za-z0-9_-]+)/$', views.event_view, name='rsvp_event_view'),
     # url(r'^rsvp/(?P<slug>[A-Za-z0-9_-]+)/thanks/(?P<guest_id>\d+)/$', views.event_thanks, name='rsvp_event_thanks'),
 ]
