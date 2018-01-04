@@ -46,6 +46,8 @@ ALEX = ['alex trott', 'alexander trott']
 
 CHEESE_W_AM_PM = ['dahlia greenbaum', 'daniel greenbaum',]
 
+JULIA = ['julia caine']
+
 
 class NameForm(forms.Form):
 
@@ -76,6 +78,8 @@ class NameForm(forms.Form):
             new_page = '/alex/'
         elif cleaned_name in CHEESE_W_AM_PM:
             new_page = '/cheese/'
+        elif cleaned_name in JULIA:
+            new_page = '/julia/'
         else:
             new_page = '/nameerror/'
         return new_page

@@ -112,6 +112,9 @@ def cheese(request):
 def activities(request):
     return render(request, 'blog/activities.html')
 
+def julia(request):
+    return render(request, 'blog/julia.html')
+
 def nameerror(request):
     if request.method == 'POST':
         form = NameForm(request.POST)

@@ -1,0 +1,119 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("Sep 5, 2018");
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+    // Get todays date and time
+    var now = new Date();
+
+    // Find the distance between now an the count down date
+    var distance = countDownDate - now;
+
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+    // Output the result in an element with id="demo"
+    document.getElementById("demo").innerHTML = days + " days to go!"
+
+    // If the count down is over, write some text
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+    }
+}, 1000);
+</script>
+
+<h1>Julia, you're getting married!!!</h1>
+<h2 id="demo"></h2>
+<p style="text-align:center">
+  Let's be real, though, you don't need a schedule. You know everything that's going on already.
+</p>
+
+
+<!-- <img src="{% static 'photos/friends_dresses.gif' %}" -->
+
+<div class=row>
+  <div class="col-sm-12 col-md-6 order-md-2 vcenter">
+    <img class="image4" src="{% static 'photos/friends_dresses.gif' %}">
+  </div>
+  <div class="col-sm-12 col-md-6 order-md-1 vcenter">
+    <span class="middle">
+      <p>There's gonna be a lot of this...</p>
+    </span>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 order-md-2 col-sm-12 vcenter">
+    <img class="image4" src="{% static 'photos/disco.jpg' %}">
+  </div>
+  <div class="col-md-6 order-md-1 col-sm-12 vcenter">
+    <span class="middle">
+      <p>And then some of this...</p>
+  </div>
+</div>
+
+<div class=row>
+  <div class="col-sm-12 col-md-6 vcenter">
+    <img class="image4 middle" src="{% static 'photos/excited_ari.jpg' %}">
+  </div>
+  <div class="col-sm-12 col-md-6 vcenter">
+    <span>
+      <p>You know Ari's excited!</p>
+    </span>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 order-md-2 col-sm-12 vcenter">
+    <img class="image4" src="{% static 'photos/excited_julia.jpg' %}">
+  </div>
+  <div class="col-md-6 order-md-1 col-sm-12 vcenter">
+    <span class="middle">
+      <p>And so are you!</p>
+  </div>
+</div>
+
+<div class=row>
+  <div class="col-sm-12 col-md-6 vcenter">
+    <img class="image4 middle" src="{% static 'photos/dash_relaxing.jpg' %}">
+  </div>
+  <div class="col-sm-12 col-md-6 vcenter">
+    <span>
+      <p>And when it's all over, you can finally relax.</p>
+    </span>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 order-md-2 col-sm-12 vcenter">
+    <img class="image4" src="{% static 'photos/2017_aug_kew_holding_hands.jpg' %}">
+  </div>
+  <div class="col-md-6 order-md-1 col-sm-12 vcenter">
+    <span class="middle">
+      <p>And start your life with your favorite person.</p>
+  </div>
+</div>
+
+<div class=row>
+  <div class="col-sm-12 col-md-6 vcenter">
+    <img class="image4 middle" src="{% static 'photos/2017_dec_disney_castle.jpg' %}">
+  </div>
+  <div class="col-sm-12 col-md-6 vcenter">
+    <span>
+      <p>It'll be magical!</p>
+    </span>
+  </div>
+</div>
+
+<br /><br />
+
+{% endblock %}

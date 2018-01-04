@@ -208,8 +208,8 @@ p {
 
 .center {
     margin: auto;
-    width: 90%;
-    padding: 0 5% 0 5%;
+    width: 100%;
+    padding: 0 3% 0 3%;
     position: relative;
 }
 
@@ -352,6 +352,11 @@ p {
       padding-left: 5%;
       line-height: 0.1;
   }
+  .center {
+      width: 90%;
+      padding: 0 5% 0 5%;
+      position: relative;
+  }
   .image3 {
     height: auto;
     width: auto;
@@ -438,6 +443,12 @@ p {
   }
   p {
     font-size: 0.9em;
+  }
+
+  .center {
+      width: 90%;
+      padding: 0 5% 0 5%;
+      position: relative;
   }
 
   .image3 {
