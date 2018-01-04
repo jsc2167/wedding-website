@@ -1,0 +1,78 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+{% load static %}
+
+<h1>Hi, Alex!</h1>
+
+<div class="row">
+  <div class="col-sm-12 col-md-6 vcenter">
+    <span><h2>You wanted DRAMA, so here it comes!</h2>
+      <p>Once upon a time, Dash sat around contemplating ways to change the world.</p>
+    </span>
+  </div>
+  <div class="col-sm-12 col-md-6 vcenter">
+    <img class="image4" src="{% static 'photos/dash_reflection.jpg' %}">
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12 col-md-6 middle order-md-2 vcenter" style="padding-left:8%">
+    <span>
+      <p>He cast a spell on Julia and Ari that made them vomit on each other. (Because that's what is happening in this picture. I know it looks like they're just about to kiss, but that's really not the case. Just trust me.)</p>
+    </span>
+  </div>
+  <div class="col-sm-12 col-md-6 order-md-1 vcenter">
+    <img class="image4" src="{% static 'photos/bad_apple.jpg' %}">
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-sm-12 col-md-6 vcenter">
+    <span>
+      <p>Ari died that night.</p>
+    </span>
+  </div>
+  <div class="col-sm-12 col-md-6 vcenter">
+    <img class="image4 middle" src="{% static 'photos/Ari_dead.jpg' %}">
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12 col-md-6 middle order-md-2 vcenter" style="padding-left:8%">
+    <span>
+      <p>Then he and Julia turned into ghosts.</p>
+    </span>
+  </div>
+  <div class="col-sm-12 col-md-6 order-md-1 vcenter">
+    <img class="image4" src="{% static 'photos/ghosts.jpg' %}">
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12 col-md-6 vcenter">
+    <span>
+      <p>Just kidding! The worst thing that happened was that Ari had a silly face for a while.</p>
+    </span>
+  </div>
+  <div class="col-sm-12 col-md-6 vcenter">
+    <img class="image4 middle" src="{% static 'photos/beard.jpg' %}">
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12 col-md-6 middle order-md-2 vcenter" style="padding-left:8%">
+    <span>
+      <p>But in all seriousness, though, look at this face. There's no way anyone with a face as adorable as this could be the villain. I tried though.</p>
+    </span>
+  </div>
+  <div class="col-sm-12 col-md-6 order-md-1 vcenter">
+    <img class="image4 middle" src="{% static 'photos/dash_hearts.jpg' %}">
+  </div>
+</div>
+<br />
+<p>
+  Okay, <a href="{% url 'hop' %}">here's your schedule</a>.
+</p>
+
+{% endblock %}

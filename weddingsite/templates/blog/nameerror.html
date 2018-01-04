@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+{% load static %}
+
+<h1>Oops!</h1>
+  <p>
+    That didn't seem to work. Try again with your first and last names, capitalization doesn't matter. If you're still getting this message, send us an email at ariandjuliagetmarried@gmail.com and we'll send you your schedule.
+  </p>
+<br />
+
+<form class="form-style" method="post">
+  <div class="form-group">
+    {% csrf_token %}
+    {{ form }}
+    <button class="btn btn-primary form-button">Submit</button>
+  </div>
+</form>
+
+
+{% endblock %}

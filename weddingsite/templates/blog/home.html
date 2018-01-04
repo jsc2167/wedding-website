@@ -7,12 +7,12 @@
 
 <div class=row>
   <div class="col-sm-12 col-md-6 vcenter">
-    <img class="image3 middle" src="{% static 'photos/2017_Dec_Disney.jpg' %}" alt="https://imgur.com/ZzqEGsU.png">
+    <img class="image4 middle" src="{% static 'photos/2017_Aug_Kew.jpg' %}" alt="https://imgur.com/ZzqEGsU.png">
   </div>
   <div class="col-sm-12 col-md-6 vcenter">
     <span><h1>We are looking forward to celebrating with you on July 23, 2018!</h1>
     <br /><br />
-    <p>In addition to a dinner before the wedding, we will be having a casual brunch on Tuesday, July 24th in the morning for all of our "adult" guests (if you're closer to our parent's ages), and a gathering in the evening for all of our "kid" guests (if you're closer to our age). Please take this into account when you book your travel, as we'd love to spend more time with you!</p></span>
+    <p>In addition the wedding ceremony and reception, we will be having a few other events in the surrounding days for our out-of-town guests, which you can see on our "events" page. Please take this into account when you book your travel, as we'd love to spend more time with you!</p></span>
   </div>
 </div>
 
@@ -25,8 +25,8 @@
   <div class="col-md-6 order-md-1 col-sm-12 vcenter">
     <span class="middle" style="text-align: center"><h2>Wedding Details</h2>
       <p>Ceremony and reception</p>
-      <p>4:00 pm to 11:00 pm</p>
-      <p>Monday, July 23rd, 2018</p>
+      <p>4:00 p.m. to 11:00 p.m.</p>
+      <p>Monday, July 23, 2018</p>
       <p>Syon House and Conservatory</p>
       <p>Brentford, United Kingdom, TW8 8JF</p>
       <p>Cocktail attire</p></span>
@@ -43,7 +43,23 @@
     <p>There will be dinner, dancing, cake, and ice cream!</p>
   </div>
 </div>
+<br />
+<p style="text-align:center">
+  Check out the other pages! Click below or click on the hamburger (&#9776;) on the top left of each page.
+</p>
 
+<div class="d-flex justify-content-around">
+  <nav class="bottom-bar">
+    <ul>
+      <a class="p-2" href="{% url 'home' %}">Home</a>
+      <a class="p-2" href="{% url 'about' %}">About Us</a>
+      <a class="p-2" href="{% url 'hotels' %}">Travel and Lodging</a>
+      <a class="p-2" href="{% url 'schedule' %}">Schedule</a>
+      <a class="p-2" href="{% url 'registry' %}">Registry</a>
+      <a class="p-2" href="{% url 'photos' %}">Wedding Party</a>
+    </ul>
+  </nav>
 </div>
+
 
 {% endblock %}

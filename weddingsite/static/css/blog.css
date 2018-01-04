@@ -44,6 +44,14 @@ footer {
   color: "black";
 }
 
+.bottom-bar {
+  display: inline-block;
+  text-align: center;
+  margin: auto;
+  font-size: 1.4em;
+  color: #58A0B8;
+}
+
 .paragraph {
   padding-bottom: 50px;
   display: flex;
@@ -55,6 +63,7 @@ footer {
 
 .image1 {
   border-radius: 25px;
+  border-collapse: separate;
   width: 100%;
   object-fit: scale-down;
   padding-bottom: 4%;
@@ -71,6 +80,7 @@ footer {
   width: auto;
   max-height: 600px;
   border-radius: 25px;
+  border-collapse: separate;
 }
 
 .image4 {
@@ -78,13 +88,17 @@ footer {
   border-radius: 25px;
   max-height: 400px;
   max-width: 100%;
-  padding-bottom: 4%;
+  margin-bottom: 4%;
+}
+
+.max_height_100 {
+  max-height: 100%;
 }
 
 .image4 .rotate_180 {
   padding-bottom: 10%;
 }
-
+/*
 .rotate_90 {
   transform:          rotate(90deg);
   -ms-transform:      rotate(90deg);
@@ -107,6 +121,22 @@ footer {
   -moz-transform:     rotate(270deg);
   -webkit-transform:  rotate(270deg);
   -o-transform:       rotate(270deg);
+}*/
+
+button, input, select, textarea {
+  font-family : inherit;
+  font-size   : 100%;
+}
+
+.form-style {
+  font-family: 'Spectral SC', 'Raleway', 'Vollkorn SC', 'Dancing Script';
+  text-align: center;
+}
+
+.form-button {
+  background: linear-gradient(+45deg, #414E5E, #A1B7CD);
+  color: #FFFFFF;
+  width: 20%;
 }
 
 .page-header {

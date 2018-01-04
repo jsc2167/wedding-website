@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+{% load static %}
+
+<h1>Schedule of Events</h1>
+  <p>
+    Since many of you are traveling so far to join us for our wedding, we want to stretch out the celebration a little more for our out-of-town guests. Please enter your full name in the box below (capitalization doesn't matter), and you'll see your schedule for the wedding weekend!
+  </p>
+<br />
+
+<form class="form-style" method="post">
+  <div class="form-group">
+    {% csrf_token %}
+    {{ form }}
+    <button class="btn btn-primary form-button">Submit</button>
+  </div>
+</form>
+
+
+{% endblock %}
