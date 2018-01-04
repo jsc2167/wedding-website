@@ -115,7 +115,13 @@ button, input, select, textarea {
 .form-style {
   font-family: 'Spectral SC', 'Raleway', 'Vollkorn SC', 'Dancing Script';
   text-align: center;
+  /*background-color: #f2f2f2;*/
+}
+
+#id_your_name {
   background-color: #f2f2f2;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 .form-button {
