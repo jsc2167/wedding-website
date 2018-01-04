@@ -109,6 +109,9 @@ def alex(request):
 def cheese(request):
     return render(request, 'blog/cheese.html')
 
+def activities(request):
+    return render(request, 'blog/activities.html')
+
 def nameerror(request):
     if request.method == 'POST':
         form = NameForm(request.POST)
