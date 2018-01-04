@@ -98,14 +98,14 @@ footer {
 .image4 .rotate_180 {
   padding-bottom: 10%;
 }
-/*
-.rotate_90 {
+
+/*.rotate_90 {
   transform:          rotate(90deg);
   -ms-transform:      rotate(90deg);
   -moz-transform:     rotate(90deg);
   -webkit-transform:  rotate(90deg);
   -o-transform:       rotate(90deg);
-}
+}*/
 
 .rotate_180 {
   transform:          rotate(180deg);
@@ -114,7 +114,7 @@ footer {
   -webkit-transform:  rotate(180deg);
   -o-transform:       rotate(180deg);
 }
-
+/*
 .rotate_270 {
   transform:          rotate(270deg);
   -ms-transform:      rotate(270deg);
