@@ -8,9 +8,8 @@ HOP_W_PM = [
     'amanda delshad', 'amanda mintzer', 'danny mintzer',
     'celeste conrad', 'celeste holmes', 'jay holmes', 'ashley budasoff',
     'larry budasoff', 'lawrence budasoff', 'adin insoft',
-    'dahlia greenbaum', 'daniel greenbaum',
     'leah kandel', 'jacob newman', 'kendrice newman',
-    'kendrice james', 'clay thibodeaux', 'tari tan',
+    'kendrice james', 'clay thibodeaux', 'tari tan', 'taralyn tan'
     'ian mclachlan', 'milner', 'elliott milner',
     'e. s. milner', 'e s milner', 'saul glasman', 'nicole neubarth',
     'alan emanuel', 'kaori graybeal', 'matthias minderer',
@@ -41,9 +40,11 @@ SING_S_AM = ['janet tanzi', 'dena glasgow', 'jason glasgow', 'heather zacker',
 SUN_W_AM = ['rob insoft', 'robert insoft', 'andie insoft', 'tova morcos',
 'samir morcos', 'jared kliger', 'philip freed', 'linda freed',
 'linda rich freed', 'linda rich', 'chris harvey', 'christopher harvey',
-'lauren orefice']
+'lauren orefice', 'shalva greenbaum']
 
 ALEX = ['alex trott', 'alexander trott']
+
+CHEESE_W_AM_PM = ['dahlia greenbaum', 'daniel greenbaum',]
 
 
 class NameForm(forms.Form):
@@ -73,6 +74,8 @@ class NameForm(forms.Form):
             new_page = '/sun/'
         elif cleaned_name in ALEX:
             new_page = '/alex/'
+        elif cleaned_name in CHEESE_W_AM_PM:
+            new_page = '/cheese/'
         else:
             new_page = '/nameerror/'
         return new_page

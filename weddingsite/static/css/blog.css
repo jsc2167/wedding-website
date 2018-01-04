@@ -99,14 +99,6 @@ footer {
   padding-bottom: 10%;
 }
 
-/*.rotate_90 {
-  transform:          rotate(90deg);
-  -ms-transform:      rotate(90deg);
-  -moz-transform:     rotate(90deg);
-  -webkit-transform:  rotate(90deg);
-  -o-transform:       rotate(90deg);
-}*/
-
 .rotate_180 {
   transform:          rotate(180deg);
   -ms-transform:      rotate(180deg);
@@ -114,14 +106,6 @@ footer {
   -webkit-transform:  rotate(180deg);
   -o-transform:       rotate(180deg);
 }
-/*
-.rotate_270 {
-  transform:          rotate(270deg);
-  -ms-transform:      rotate(270deg);
-  -moz-transform:     rotate(270deg);
-  -webkit-transform:  rotate(270deg);
-  -o-transform:       rotate(270deg);
-}*/
 
 button, input, select, textarea {
   font-family : inherit;
@@ -131,12 +115,13 @@ button, input, select, textarea {
 .form-style {
   font-family: 'Spectral SC', 'Raleway', 'Vollkorn SC', 'Dancing Script';
   text-align: center;
+  background-color: #f2f2f2;
 }
 
 .form-button {
   background: linear-gradient(+45deg, #414E5E, #A1B7CD);
   color: #FFFFFF;
-  width: 20%;
+  width: 17%;
 }
 
 .page-header {
@@ -147,7 +132,7 @@ button, input, select, textarea {
   max-height: 200px;
   min-width: 100%;
   margin: 0px 0px 2% 0px;
-  padding: 6rem 0px 6rem 0px;
+  padding: 1rem 0px 1rem 0px;
   text-align: left;
 }
 
@@ -158,6 +143,7 @@ button, input, select, textarea {
     padding-left: 90px;
     width: 100%;
     text-align: left;
+    top: -30%;
 }
 
 .content {
@@ -182,19 +168,11 @@ p {
     margin-right: 20px;
 }
 
-.nav-area {
-  height: 100%;
-  width: 250px;
-  position: relative;
-  z-index: 1;
-  top: 0;
-  left: 0;
-}
-
 .hamburger {
   text-align: left;
   z-index: 2;
   font-size: 3rem;
+  color: #FFFFFF;
 }
 
 .menu {
@@ -231,9 +209,8 @@ p {
 .center {
     margin: auto;
     width: 90%;
-    padding: 10px;
+    padding: 10%;
     position: relative;
-    top: -10%;
 }
 
 #floated{
@@ -259,7 +236,6 @@ p {
       position: fixed;
       z-index: 3;
       left: -220px;
-      top: 185px;
       font-family: 'Spectral SC', 'Raleway', 'Vollkorn SC', 'Dancing Script';
       line-height: auto;
       background: rgba(204, 204, 204, 0);
@@ -268,7 +244,7 @@ p {
       transition: 0.3s;
   }
 
-  .sidenav:hover {
+  .page-header .sidenav:hover {
       width: 30%;
       padding: 60px 8px 8px 32px;
       left: 0;
@@ -366,14 +342,15 @@ p {
     padding-bottom: 4%;
   }
   .page-header {
-    padding-top: 20px;
-    max-height: 10%;
+    padding: 0 0 0 0;
+    max-height: 28%;
     width: 100%;
     background-image: url('capri_short_crop.png');
   }
   .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
       font-size: 1.6em;
       padding-left: 5%;
+      line-height: 0.1;
   }
   .image3 {
     height: auto;
@@ -426,16 +403,17 @@ p {
 }
 
 /*iphone vertical*/
-@media only screen and (min-width : 375px) and (max-width : 667px) and (orientation : portrait) {
+@media only screen and (min-width : 325px) and (max-width : 667px) and (orientation : portrait) {
 
   .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
-      font-size: 1.5em;
+      font-size: 1.2em;
       padding-left: 5%;
+      position: fixed;
+      top: 3%;
   }
 
   .page-header {
-    padding-top: 20px;
-    max-height: 10%;
+    max-height: 15%;
     width: 100%;
     background-image: url('capri_short_crop.png');
     margin-bottom: 5%;
@@ -484,7 +462,7 @@ p {
 
   .sidenav a {
       padding-top: 0.05rem;
-      padding-left: 0.2rem;
+      padding-left: 1.2rem;
       padding-right: 0;
       padding-bottom: 1.5rem;
       text-decoration: none;
@@ -529,6 +507,11 @@ p {
     padding-left: 5%;
     padding-right: 5%;
     padding-bottom: 20px;
+  }
+
+  .form-button {
+    width: 50%;
+    margin-top: 10%;
   }
 
 }

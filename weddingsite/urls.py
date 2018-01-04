@@ -23,7 +23,8 @@ urlpatterns = [
     url(r'^pom/$', views.pom, name='pom'),
     url(r'^cool-kids/$', views.cool_kids, name='cool-kids'),
     url(r'^nameerror/$', views.nameerror, name='nameerror'),
-    url(r'^alex/$', views.alex, name='alex'),  
+    url(r'^alex/$', views.alex, name='alex'),
+    url(r'^cheese/$', views.cheese, name='cheese'),  
 # url(r'^rsvp/(?P<slug>[A-Za-z0-9_-]+)/$', views.event_view, name='rsvp_event_view'),
     # url(r'^rsvp/(?P<slug>[A-Za-z0-9_-]+)/thanks/(?P<guest_id>\d+)/$', views.event_thanks, name='rsvp_event_thanks'),
 ]
