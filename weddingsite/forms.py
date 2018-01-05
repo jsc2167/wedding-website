@@ -14,7 +14,8 @@ HOP_W_PM = [
     'e. s. milner', 'e s milner', 'saul glasman', 'nicole neubarth',
     'alan emanuel', 'kaori graybeal', 'matthias minderer',
     'christina welsh', 'dan millman', 'daniel millman', 'rebecca yang',
-    'alex wiltschko', 'katherine gorman', 'ryan heisler', 'etta king',]
+    'alex wiltschko', 'katherine gorman', 'ryan heisler', 'etta king',
+    'etta heisler']
 
 COOL_KIDS_ALL = ['rebecca caine', 'john light', 'ben caine', 'anna caine']
 
