@@ -537,6 +537,6 @@ p {
 
 @@media screen and (min-width: 1366px) {
   .page-header {
-    max-width: 8%;
+    max-height: 8%;
   }
 }
