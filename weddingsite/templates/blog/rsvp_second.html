@@ -12,23 +12,24 @@
     <span>
       <form class="form-style" method="post">
         <div class="form-group">
-          <!-- {% csrf_token %} -->
-          <table class="form-style myradio" type="radio">
-            {{ form.as_table }}
-          </table>
-          <button class="btn btn-primary rsvp-form-button">Submit</button>
+          {% csrf_token %}
+          <!-- <table class="form-style myradio" type="radio"> -->
+            {{ form.as_p }}
+          <!-- </table> -->
+          <!-- <button class="btn btn-primary rsvp-form-button">Submit</button> -->
+          <p><input type="submit" value="Yay!"></p>
         </div>
       </form>
     </span>
   </div>
 </div>
 
-<form method="post" action="/some-action/">
+<!-- <form method="post" action="/some-action/">
     {% csrf_token %}
     {{ profileform.as_p }}
     <p><input type="submit" value="Yay!"></p>
 </form>
-<br />
+<br /> -->
 
 
 

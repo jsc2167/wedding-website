@@ -112,8 +112,6 @@ def RSVPInit(request):
 
 def RSVPSecond(request):
 
-    # category = request.session['category']
-
     if request.method == 'POST':
         form = RSVPQuestions(request.POST)
 
@@ -124,7 +122,6 @@ def RSVPSecond(request):
         else:
             pass
     else:
-        # import pdb; pdb.set_trace()
         form = RSVPQuestions(request.session['category'])
 
     return render(request, 'blog/rsvp_second.html', {'form': form})

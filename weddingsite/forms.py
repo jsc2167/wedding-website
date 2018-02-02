@@ -7,8 +7,9 @@ from django.core.exceptions import ObjectDoesNotExist
 from .models import WEDDING_ATTENDING_CHOICES, WELCOME_CHOICES, WEDDING_CHOICES, TUES_AM_ATTENDING_CHOICES, TUES_PM_ATTENDING_CHOICES, WELCOME_ATTENDING_CHOICES, SHABBAT_ATTENDING_CHOICES
 from django.forms.formsets import formset_factory
 from django.forms.forms import NON_FIELD_ERRORS
-import floppyforms as forms
-
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout, Div, Submit, HTML, Button, Row, Field
+from crispy_forms.bootstrap import AppendedText, PrependedText, FormActions
 
 HOP_W_PM = [
     'rachel insoft', 'phil masui', 'philip masui', 'mary awadallah',
@@ -136,11 +137,6 @@ class RSVPMain(forms.Form):
         else:
             category = 'nameerror'
         return category
-
-class ProfileForm(forms.Form):
-    name = forms.CharField()
-    email = forms.EmailField()
-    url = forms.URLField()
 
 class RSVPQuestions(forms.Form):
 
