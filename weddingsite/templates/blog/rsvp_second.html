@@ -1,0 +1,42 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+{% load static %}
+
+    <h1>RSVP</h1>
+
+<div class=row>
+  <div class="col-sm-12 col-md-4 vcenter">
+    <img class="image4 middle" src="{% static 'photos/dash_snow.jpg' %}">
+  </div>
+  <div class="col-sm-12 col-md-8 vcenter">
+    <span>
+      <form class="form-style" method="post">
+        <div class="form-group">
+          <!-- {% csrf_token %} -->
+          <table class="form-style myradio" type="radio">
+            {{ form.as_table }}
+          </table>
+          <button class="btn btn-primary rsvp-form-button">Submit</button>
+        </div>
+      </form>
+    </span>
+  </div>
+</div>
+
+<form method="post" action="/some-action/">
+    {% csrf_token %}
+    {{ profileform.as_p }}
+    <p><input type="submit" value="Yay!"></p>
+</form>
+<br />
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

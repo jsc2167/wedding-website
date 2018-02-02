@@ -112,10 +112,77 @@ button, input, select, textarea {
   font-size   : 100%;
 }
 
+/*  Trying to style radio buttons */
+/* .myradio {
+  color: #414E5E;
+} */
+
+/* input[type="radio"]:checked ~ span {
+  color: #78a025;
+} */
+
+input[type=checkbox] {
+  color: #ccc;
+  font-style: italic;
+}
+input[type=checkbox]:checked {
+  color: #f00;
+  font-style: normal;
+}
+
+/* input[type="radio"] {
+  display: none;
+} */
+
+.checked {
+  color: 'green';
+}
+
+li:checked {
+  color: 'blue';
+}
+
+#id_welcome_dinner li:nth-child(1) label {
+  color: 'purple';
+}
+
+label[value='']
+
+.myradio {
+  display: inline-block;
+  color: 'black';
+}
+
+.myradio input:checked {
+  color: #bbb;
+}
+
+li:hover {
+	color: #A1B7CD;
+}
+
+/* End trying to style radio buttons */
+
 .form-style {
-  font-family: 'Spectral SC', 'Raleway', 'Vollkorn SC', 'Dancing Script';
+  font-family: 'Raleway', 'Vollkorn SC', 'Dancing Script';
   text-align: center;
-  /*background-color: #f2f2f2;*/
+  list-style: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+td, th {
+  border-bottom: solid 1px black;
+  padding-bottom: 5px;
+  padding-top: 10px;
+}
+
+.form-style:first-child {
+  border-top: none;
+}
+
+.form-style:last-child {
+  border-bottom: none;
 }
 
 #id_your_name {
@@ -128,6 +195,13 @@ button, input, select, textarea {
   background: linear-gradient(+45deg, #414E5E, #A1B7CD);
   color: #FFFFFF;
   width: 17%;
+  border: none;
+}
+
+.rsvp-form-button {
+  background: linear-gradient(+45deg, #414E5E, #A1B7CD);
+  color: #FFFFFF;
+  border: none;
 }
 
 .page-header {

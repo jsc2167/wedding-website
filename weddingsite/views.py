@@ -1,51 +1,13 @@
 from django.shortcuts import render, get_object_or_404, render_to_response
 from django.utils import timezone
-from .models import Event
+# from .models import Event, Guest
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 import datetime
 from django.core.exceptions import ObjectDoesNotExist
 from django.urls import reverse
 from django.template import RequestContext
 
-from .forms import NameForm
-
-# def get_name(self):
-#     if self.name == 'julia':
-#         return render(request, 'registry.html', {'form': form})
-#
-#     else:
-#         return render(request, 'schedule.html', {'form': form})
-
-# def event_view(request, slug, model_class=Event, form_class=RSVPForm, template_name='blog/event_view.html'):
-#     event = get_object_or_404(model_class, slug=slug)
-#
-#     if request.POST:
-#         form = form_class(request.POST)
-#
-#         if form.is_valid():
-#             guest = form.save()
-#             return HttpResponseRedirect(reverse('rsvp_event_thanks', kwargs={'slug': slug, 'guest_id': guest.id}))
-#     else:
-#         form = form_class()
-#
-#     return render_to_response(template_name, {
-#         'event': event,
-#         'form': form,
-#     }, context_instance=RequestContext(request))
-#
-#
-# def event_thanks(request, slug, guest_id, model_class=Event, template_name='blog/event_thanks.html'):
-#     event = get_object_or_404(model_class, slug=slug)
-#
-#     try:
-#         guest = event.guests.get(pk=guest_id)
-#     except ObjectDoesNotExist:
-#         raise Http404
-#
-#     return render_to_response(template_name, {
-#         'event': event,
-#         'guest': guest,
-#     }, context_instance=RequestContext(request))
+from .forms import NameForm, RSVPMain, RSVPQuestions
 
 def home(request):
     return render(request, 'blog/home.html')
@@ -59,8 +21,8 @@ def hotels(request):
 def registry(request):
     return render(request, 'blog/registry.html')
 
-def rsvp(request):
-    return render(request, 'blog/rsvp.html')
+# def rsvp(request):
+#     return render(request, 'blog/rsvp.html')
 
 def photos(request):
     return render(request, 'blog/photos.html')
@@ -131,3 +93,74 @@ def nameerror(request):
     else:
         form = NameForm()
     return render(request, 'blog/nameerror.html', {'form': form})
+
+#make RSVP form save responses to database
+def RSVPInit(request):
+    rsvpform = RSVPMain(request.POST)
+    if request.method == 'POST':
+        rsvpform = RSVPMain(request.POST)
+
+        if rsvpform.is_valid():
+            request.session['category'] = rsvpform.get_category()
+            return HttpResponseRedirect('/rsvp2/')
+        else:
+            pass
+    else:
+        rsvpform = RSVPMain()
+
+    return render(request, 'blog/rsvp_init.html', {'rsvpform': rsvpform})
+
+def RSVPSecond(request):
+
+    # category = request.session['category']
+
+    if request.method == 'POST':
+        form = RSVPQuestions(request.POST)
+
+        if form.is_valid:
+            new_page = form.get_page()
+            form.save()
+            return render(request, 'blog/rsvp.html')
+        else:
+            pass
+    else:
+        # import pdb; pdb.set_trace()
+        form = RSVPQuestions(request.session['category'])
+
+    return render(request, 'blog/rsvp_second.html', {'form': form})
+
+
+def event_thanks(request):
+    return render(request, 'blog/event_thanks.html')
+
+
+# def rsvp(request, model_class=Event, form_class=RSVPForm, template_name='blog/rsvp.html'):
+#     event = get_object_or_404(model_class)
+#
+#     if request.POST:
+#         rsvpform = form_class(request.POST)
+#
+#         if rsvpform.is_valid():
+#             guest = rsvpform.save()
+#             return HttpResponseRedirect(reverse('rsvp_event_thanks'))
+#     else:
+#         rsvpform = form_class()
+#
+#     return render_to_response(template_name, {
+#         'event': event,
+#         'rsvpform': rsvpform,
+#     }, context_instance=RequestContext(request))
+#
+#
+# def event_thanks(request, model_class=Event, template_name='blog/event_thanks.html'):
+#     event = get_object_or_404(model_class)
+#
+#     try:
+#         guest = event.guests.get
+#     except ObjectDoesNotExist:
+#         raise Http404
+#
+#     return render_to_response(template_name, {
+#         'event': event,
+#         'guest': guest,
+#     }, context_instance=RequestContext(request))

@@ -5,7 +5,7 @@ from rsvp.models import Event, Guest
 class GuestInline(admin.TabularInline):
     model = Guest
     extra = 3
-    fields = ('email', 'name', 'attending_status', 'number_of_guests')
+    fields = ('name', 'attending_status', 'number_of_guests')
 
 
 class EventAdmin(admin.ModelAdmin):
@@ -13,9 +13,6 @@ class EventAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {
             'fields': ('title', 'slug', 'description', 'date_of_event'),
-        }),
-        ('Email', {
-            'fields': ('email_subject', 'email_message'),
         }),
         ('Event Details', {
             'fields': ('hosted_by', 'street_address', 'city', 'state', 'zip_code', 'telephone'),
@@ -29,10 +26,10 @@ class EventAdmin(admin.ModelAdmin):
 
 
 class GuestAdmin(admin.ModelAdmin):
-    fields = ('event', 'email', 'name', 'attending_status', 'number_of_guests', 'comment')
-    list_display = ('email', 'name', 'attending_status', 'number_of_guests')
+    fields = ('event', 'name', 'attending_status', 'number_of_guests', 'comment')
+    list_display = ('name', 'attending_status', 'number_of_guests')
     list_filter = ('attending_status',)
-    search_fields = ('email', 'name')
+    search_fields = ('name')
 
 
 admin.site.register(Event, EventAdmin)

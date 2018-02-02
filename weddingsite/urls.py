@@ -1,5 +1,7 @@
 from django.conf.urls import url
 from . import views
+from django.contrib import admin
+
 
 # import sys
 # sys.path.append("..")
@@ -10,7 +12,8 @@ urlpatterns = [
     url(r'^about/$', views.about, name='about'),
     url(r'^hotels/$', views.hotels, name='hotels'),
     url(r'^registry/$', views.registry, name='registry'),
-    # url(r'^rsvp/$', views.rsvp, name='rsvp'),
+    url(r'^rsvp/$', views.RSVPInit, name='rsvp_init'),
+    url(r'^rsvp2/$', views.RSVPSecond, name='rsvp_second'),
     url(r'^photos/$', views.photos, name='photos'),
     url(r'^error/$', views.error, name='error'),
     url(r'^schedule/$', views.schedule, name='schedule'),
@@ -27,9 +30,11 @@ urlpatterns = [
     url(r'^cheese/$', views.cheese, name='cheese'),
     url(r'^activities/$', views.activities, name='activities'),
     url(r'^julia/$', views.julia, name='julia'),
-    url(r'^ari/$', views.ari, name='ari'),  
-# url(r'^rsvp/(?P<slug>[A-Za-z0-9_-]+)/$', views.event_view, name='rsvp_event_view'),
+    url(r'^ari/$', views.ari, name='ari'),
+    # url(r'^rsvp/(?P<slug>[A-Za-z0-9_-]+)/$', views.rsvp, name='rsvp_event_view'),
+    url(r'^rsvp/thanks/$', views.event_thanks, name='rsvp_event_thanks'),
     # url(r'^rsvp/(?P<slug>[A-Za-z0-9_-]+)/thanks/(?P<guest_id>\d+)/$', views.event_thanks, name='rsvp_event_thanks'),
+    url(r'^admin/', admin.site.urls),
 ]
 
 # urlpatterns += url('',
