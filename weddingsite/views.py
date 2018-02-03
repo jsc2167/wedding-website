@@ -6,8 +6,11 @@ import datetime
 from django.core.exceptions import ObjectDoesNotExist
 from django.urls import reverse
 from django.template import RequestContext
-
+from django.shortcuts import redirect
+from django.template import Context
+from django.template.loader import get_template
 from .forms import NameForm, RSVPMain, RSVPQuestions
+import csv
 
 def home(request):
     return render(request, 'blog/home.html')
@@ -112,19 +115,30 @@ def RSVPInit(request):
 
 def RSVPSecond(request):
 
+    # for key in dic.keys():
+    # 	name = key
+    # 	email = dic[key]
+    # 	row = name + "," + email + "\n"
+    # 	csv.write(row)
+
     if request.method == 'POST':
-        form = RSVPQuestions(request.POST)
+        form = RSVPQuestions(request.POST, request.FILES)
 
         if form.is_valid:
-            new_page = form.get_page()
+            # welcome_dinner = request.POST.get('welcome_dinner', '')
+            # download_dir = "rsvp_responses.csv"
+            # csv = open(download_dir, "a")
+            # csv.write(welcome_dinner)
             form.save()
-            return render(request, 'blog/rsvp.html')
+            return HttpResponseRedirect('/thanks/')
         else:
             pass
     else:
         form = RSVPQuestions(request.session['category'])
 
-    return render(request, 'blog/rsvp_second.html', {'form': form})
+    return render(request, "blog/rsvp_second.html", {'form': form})
+
+    # return render(request, 'blog/rsvp_second.html', {'form': form})
 
 
 def event_thanks(request):

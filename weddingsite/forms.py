@@ -7,9 +7,9 @@ from django.core.exceptions import ObjectDoesNotExist
 from .models import WEDDING_ATTENDING_CHOICES, WELCOME_CHOICES, WEDDING_CHOICES, TUES_AM_ATTENDING_CHOICES, TUES_PM_ATTENDING_CHOICES, WELCOME_ATTENDING_CHOICES, SHABBAT_ATTENDING_CHOICES
 from django.forms.formsets import formset_factory
 from django.forms.forms import NON_FIELD_ERRORS
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Div, Submit, HTML, Button, Row, Field
-from crispy_forms.bootstrap import AppendedText, PrependedText, FormActions
+# from crispy_forms.helper import FormHelper
+# from crispy_forms.layout import Layout, Div, Submit, HTML, Button, Row, Field
+# from crispy_forms.bootstrap import AppendedText, PrependedText, FormActions
 
 HOP_W_PM = [
     'rachel insoft', 'phil masui', 'philip masui', 'mary awadallah',
@@ -142,6 +142,14 @@ class RSVPQuestions(forms.Form):
 
     def __init__(self, category):
         super().__init__()
+        # super(RSVPQuestions, self).__init__(category)
+        # self.helper = FormHelper()
+        # self.helper.form_id = 'id-exampleForm'
+        # self.helper.form_class = 'blueForms'
+        # self.helper.form_method = 'post'
+        # self.helper.form_action = 'submit_survey'
+
+        # self.helper.add_input(Submit('submit', 'Submit'))
 
         if category in ['cool_kids', 'silk', 'maui', 'sing']:
             self.fields['shabbat'] = forms.ChoiceField(
@@ -152,7 +160,8 @@ class RSVPQuestions(forms.Form):
         if category in ['hop', 'cool_kids', 'silk', 'maui', 'sun', 'cheese']:
             self.fields['welcome_dinner'] = forms.ChoiceField(
             label='Will you be attending the welcome dinner on Sunday, July 22?',
-            choices=WELCOME_ATTENDING_CHOICES, initial='',
+            choices=WELCOME_ATTENDING_CHOICES,
+            initial='',
             widget=forms.RadioSelect(attrs={'class': 'form-style'}))
 
             self.fields['welcome_dinner_food'] = forms.ChoiceField(

@@ -13,11 +13,10 @@
       <form class="form-style" method="post">
         <div class="form-group">
           {% csrf_token %}
-          <!-- <table class="form-style myradio" type="radio"> -->
-            {{ form.as_p }}
-          <!-- </table> -->
-          <!-- <button class="btn btn-primary rsvp-form-button">Submit</button> -->
-          <p><input type="submit" value="Yay!"></p>
+          <table class="form-style myradio" type="radio">
+          {{ form.as_table }}
+          </table>
+          <button class="btn btn-primary rsvp-form-button">Submit</button>
         </div>
       </form>
     </span>
