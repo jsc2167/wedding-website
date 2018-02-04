@@ -1,6 +1,5 @@
-from django.shortcuts import render, get_object_or_404, render_to_response
+from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
-# from .models import Event, Guest
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 import datetime
 from django.core.exceptions import ObjectDoesNotExist
@@ -114,31 +113,25 @@ def RSVPInit(request):
     return render(request, 'blog/rsvp_init.html', {'rsvpform': rsvpform})
 
 def RSVPSecond(request):
-
-    # for key in dic.keys():
-    # 	name = key
-    # 	email = dic[key]
-    # 	row = name + "," + email + "\n"
-    # 	csv.write(row)
-
+    form = RSVPQuestions(request.POST)
     if request.method == 'POST':
-        form = RSVPQuestions(request.POST, request.FILES)
+        form = RSVPQuestions(request.POST)
 
         if form.is_valid:
+            model_instance = form.save(commit=False)
+            model_instance.timestamp = timezone.now()
+            model_instance.save()
             # welcome_dinner = request.POST.get('welcome_dinner', '')
             # download_dir = "rsvp_responses.csv"
             # csv = open(download_dir, "a")
             # csv.write(welcome_dinner)
-            form.save()
             return HttpResponseRedirect('/thanks/')
         else:
             pass
     else:
         form = RSVPQuestions(request.session['category'])
 
-    return render(request, "blog/rsvp_second.html", {'form': form})
-
-    # return render(request, 'blog/rsvp_second.html', {'form': form})
+    return render(request, 'blog/rsvp_second.html', {'form': form})
 
 
 def event_thanks(request):

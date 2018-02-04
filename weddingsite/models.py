@@ -43,37 +43,54 @@ WEDDING_CHOICES = (
     ('1', 'Ricotta and spinach malfatti with sage butter and parmesan crisps',),
     ('2', 'Red lentil coconut curry, grilled sweetcorn and courgette, and crisp rice balls'),
 )
-#
-# class Event(models.Model):
-#     tuesday_am = forms.ChoiceField(label='Tuesday brunch', choices=ATTENDING_CHOICES, initial='yes', widget=forms.RadioSelect)
-#
-#     def __unicode__(self):
-#         return self.title
-#
-#     def save(self, *args, **kwargs):
-#         self.updated = datetime.datetime.now()
-#         super(Event, self).save(*args, **kwargs)
-#
-#     def guests_attending(self):
-#         return self.guests.filter(attending_status='yes')
-#
-#     def guests_not_attending(self):
-#         return self.guests.filter(attending_status='no')
+
+class Party(models.Model):
+    """
+    A party consists of one or more guests.
+    """
+    name = models.TextField()
+    category = models.CharField(max_length=20, null=True, blank=True)
+    shabbat_dinner = models.NullBooleanField(default=None)
+    welcome_dinner = models.BooleanField(default=False)
+    wedding = models.NullBooleanField(default=None)
+    tues_am = models.NullBooleanField(default=None)
+    tues_pm = models.NullBooleanField(default=None)
+    comments = models.TextField(null=True, blank=True)
+
+    def __unicode__(self):
+        return 'Party: {}'.format(self.name)
+
+    @classmethod
+    def in_default_order(cls):
+        return cls.objects.order_by('category', 'name')
+
+    @property
+    def ordered_guests(self):
+        return self.guest_set.order_by('is_child', 'pk')
+
+    @property
+    def any_guests_attending(self):
+        return any(self.guest_set.values_list('is_attending', flat=True))
 
 
-# class Guest(models.Model):
-#     tuesday_am = models.ForeignKey(Event, related_name='guests', on_delete=models.CASCADE,)
-#     name = models.CharField(max_length=128, blank=True, default='')
-#     attending_status = models.NullBooleanField(default=None)
-#     number_of_guests = models.SmallIntegerField(default=0)
-#     meal = models.CharField(max_length=100, choices=MEALS, null=True, blank=True)
-#
-#     # def __unicode__(self):
-#     #     return u"%s - %s - %s" % (self.event.title, self.email, self.attending_status)
-#
-#     class Meta:
-#         unique_together = ('attending_status', 'name')
-#
-#     def save(self, *args, **kwargs):
-#         self.updated = datetime.datetime.now()
-#         super(Guest, self).save(*args, **kwargs)
+class Guest(models.Model):
+    """
+    A single guest
+    """
+    first_name = models.TextField()
+    last_name = models.TextField(null=True, blank=True)
+    shabbat_dinner = models.NullBooleanField(default=None)
+    welcome_dinner = models.BooleanField(default=False)
+    welcome_meal = models.TextField()
+    wedding = models.NullBooleanField(default=None)
+    wedding_meal = models.TextField()
+    tues_am = models.NullBooleanField(default=None)
+    tues_pm = models.NullBooleanField(default=None)
+    is_child = models.BooleanField(default=False)
+
+    @property
+    def name(self):
+        return u'{} {}'.format(self.first_name, self.last_name)
+
+    def __unicode__(self):
+        return 'Guest: {} {}'.format(self.first_name, self.last_name)
