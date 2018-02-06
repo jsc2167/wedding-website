@@ -2,14 +2,18 @@ from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 import datetime
+import requests
 from django.core.exceptions import ObjectDoesNotExist
 from django.urls import reverse
 from django.template import RequestContext
 from django.shortcuts import redirect
 from django.template import Context
 from django.template.loader import get_template
-from .forms import NameForm, RSVPMain, RSVPQuestions
+from .forms import NameForm, RSVPMain, RSVPQuestions, TestForm
 import csv
+from django.views import generic
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from .models import TestModel
 
 def home(request):
     return render(request, 'blog/home.html')
@@ -103,7 +107,9 @@ def RSVPInit(request):
         rsvpform = RSVPMain(request.POST)
 
         if rsvpform.is_valid():
-            request.session['category'] = rsvpform.get_category()
+            # import pdb; pdb.set_trace()
+            # rsvpform.save
+            request.session['category'] = 'hop'
             return HttpResponseRedirect('/rsvp2/')
         else:
             pass
@@ -113,25 +119,62 @@ def RSVPInit(request):
     return render(request, 'blog/rsvp_init.html', {'rsvpform': rsvpform})
 
 def RSVPSecond(request):
-    form = RSVPQuestions(request.POST)
     if request.method == 'POST':
         form = RSVPQuestions(request.POST)
 
         if form.is_valid:
-            model_instance = form.save(commit=False)
-            model_instance.timestamp = timezone.now()
-            model_instance.save()
-            # welcome_dinner = request.POST.get('welcome_dinner', '')
-            # download_dir = "rsvp_responses.csv"
-            # csv = open(download_dir, "a")
-            # csv.write(welcome_dinner)
+            category = request.session['category']
             return HttpResponseRedirect('/thanks/')
         else:
             pass
     else:
-        form = RSVPQuestions(request.session['category'])
+            form = RSVPQuestions(request.POST)
 
     return render(request, 'blog/rsvp_second.html', {'form': form})
+
+def FormTest(request):
+    if request.method == 'POST':
+        form = TestForm(request.POST)
+        if form.is_valid():
+            # Create a form instance from POST data.
+            f = TestForm(request.POST)
+            # Save a new entry object from the form's data.
+            f.save(commit=True)
+            # Create a form to edit an existing entry, but use
+            # POST data to populate the form.
+            # a = new_entry.objects.get(pk=1)
+            # f = TestForm(request.POST, instance=a)
+            # f.save()
+            return redirect('/thanks/')
+    else:
+        form = TestForm()
+
+    return render(request, "blog/form_test.html", {'form': form})
+
+
+    # form = RSVPQuestions(request.POST)
+    # if request.method == 'POST':
+    #     form = RSVPQuestions(request.POST)
+    #     s = requests.session('category')
+    #     rsvp_name = s.get('category')
+    #
+    #     if form.is_valid:
+    #         model_instance = form.save(commit=False)
+    #         model_instance.timestamp = timezone.now()
+    #         model_instance.save()
+    #
+    #         # welcome_dinner = request.POST.get('welcome_dinner', '')
+    #         # download_dir = "rsvp_responses.csv"
+    #         # csv = open(download_dir, "a")
+    #         # csv.write(welcome_dinner)
+    #
+    #         return HttpResponseRedirect('/thanks/')
+    #     else:
+    #         pass
+    # else:
+    #     form = RSVPQuestions(rsvp_name)
+    #
+    # return render(request, 'blog/rsvp_second.html', {'form': form})
 
 
 def event_thanks(request):

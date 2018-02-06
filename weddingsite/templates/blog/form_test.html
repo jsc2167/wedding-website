@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+{% load static %}
+
+    <h1>RSVP</h1>
+
+<form class="form-style" method="post" action="/test/">
+  <div class="form-group">
+    {% csrf_token %}
+      {{ form }}
+    <button class="btn rsvp-form-button">Submit</button>
+  </div>
+</form>
+{% endblock %}

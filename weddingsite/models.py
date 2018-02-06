@@ -34,15 +34,28 @@ TUES_PM_ATTENDING_CHOICES = (
 )
 
 WELCOME_CHOICES = (
-    ('1', 'Fish'),
-    ('2', 'Steak'),
-    ('3', 'Veggie')
+    ('1', 'None'),
+    ('2', 'Vegetarian'),
+    ('3', 'Vegan'),
+    ('4', 'Gluten-free'),
+    ('5', 'No meat with milk'),
+    ('6', 'Other'),
 )
 
 WEDDING_CHOICES = (
     ('1', 'Ricotta and spinach malfatti with sage butter and parmesan crisps',),
     ('2', 'Red lentil coconut curry, grilled sweetcorn and courgette, and crisp rice balls'),
 )
+
+class TestModel(models.Model):
+    name = models.TextField(max_length=128, unique=True)
+    category = models.CharField(max_length=20, null=True, blank=True)
+    shabbat_dinner = models.NullBooleanField(default=None)
+    welcome_dinner = models.BooleanField(default=False)
+
+    def __unicode__(self):
+        return self.name
+
 
 class Party(models.Model):
     """
@@ -78,15 +91,16 @@ class Guest(models.Model):
     A single guest
     """
     first_name = models.TextField()
-    last_name = models.TextField(null=True, blank=True)
+    last_name = models.TextField()
     shabbat_dinner = models.NullBooleanField(default=None)
-    welcome_dinner = models.BooleanField(default=False)
-    welcome_meal = models.TextField()
+    welcome_dinner = models.NullBooleanField(default=None)
+    welcome_dietary_restrictions = models.CharField(max_length=6,
+    choices=WELCOME_CHOICES, default='1')
     wedding = models.NullBooleanField(default=None)
-    wedding_meal = models.TextField()
+    wedding_meal = models.CharField(max_length=2,
+    choices=WEDDING_CHOICES, default='1')
     tues_am = models.NullBooleanField(default=None)
     tues_pm = models.NullBooleanField(default=None)
-    is_child = models.BooleanField(default=False)
 
     @property
     def name(self):

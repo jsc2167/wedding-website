@@ -1,5 +1,16 @@
 from django.contrib import admin
-# from .models import Event, Guest
+from .models import Guest, Party, TestModel
+
+admin.site.register(Party)
+admin.site.register(TestModel)
+
+class RSVPAdmin(admin.ModelAdmin):
+    list_display = ('first_name', 'last_name', 'shabbat_dinner',
+    'welcome_dinner', 'welcome_dietary_restrictions', 'wedding',
+    'wedding_meal', 'tues_am', 'tues_pm')
+
+admin.site.register(Guest, RSVPAdmin)
+
 
 # class GuestInline(admin.TabularInline):
 #     model = Guest

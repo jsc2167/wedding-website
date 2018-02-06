@@ -31,9 +31,8 @@ urlpatterns = [
     url(r'^activities/$', views.activities, name='activities'),
     url(r'^julia/$', views.julia, name='julia'),
     url(r'^ari/$', views.ari, name='ari'),
-    # url(r'^rsvp/(?P<slug>[A-Za-z0-9_-]+)/$', views.rsvp, name='rsvp_event_view'),
     url(r'^thanks/$', views.event_thanks, name='rsvp_event_thanks'),
-    # url(r'^rsvp/(?P<slug>[A-Za-z0-9_-]+)/thanks/(?P<guest_id>\d+)/$', views.event_thanks, name='rsvp_event_thanks'),
+    url(r'^test/$', views.FormTest, name='form_test'),
     url(r'^admin/', admin.site.urls),
 ]
 
