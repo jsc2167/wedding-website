@@ -4,17 +4,10 @@
 
     <h1>RSVP</h1>
 
-<form class="form-style" method="post" action="/test/">
+<form class="RSVP-form-style" method="post" action="/test/">
   <div class="form-group">
     {% csrf_token %}
-      {{ form.shabbat_dinner }}
-      {{ form.welcome_dinner }}
-      {{ form.welcome_dietary_restrictions }}
-      {{ form.wedding }}
-      {{ form.wedding_meal }}
-      {{ form.tues_am }}
-      {{ form.tues_pm }}
-
+      {{ form|linebreaks }}
     <button class="btn rsvp-form-button">Submit</button>
   </div>
 </form>

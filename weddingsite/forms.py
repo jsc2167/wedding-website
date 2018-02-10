@@ -7,9 +7,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from .models import WEDDING_ATTENDING_CHOICES, WELCOME_CHOICES, WEDDING_CHOICES, TUES_AM_ATTENDING_CHOICES, TUES_PM_ATTENDING_CHOICES, WELCOME_ATTENDING_CHOICES, SHABBAT_ATTENDING_CHOICES, Guest, RSVPFirstModel
 from django.forms.formsets import formset_factory
 from django.forms.forms import NON_FIELD_ERRORS
-# from crispy_forms.helper import FormHelper
-# from crispy_forms.layout import Layout, Div, Submit, HTML, Button, Row, Field
-# from crispy_forms.bootstrap import AppendedText, PrependedText, FormActions
+
 
 HOP_W_PM = [
     'rachel insoft', 'phil masui', 'philip masui', 'mary awadallah',
@@ -145,28 +143,29 @@ class RSVPFirstForm(forms.ModelForm):
 
 
 class RSVPResponseForm(forms.ModelForm):
-    # def __init__(self, cat):
-    #
-    #     super().__init__()
+    def __init__(self, *args, **kwargs):
+        kwargs.setdefault('label_suffix', '')  # globally override the Django >=1.6 default of ':'
+        super(RSVPResponseForm, self).__init__(*args, **kwargs)
+
     def select_questions(self, cat):
 
-        if cat in ['hop', 'pom', 'sun', 'alex', 'cheese', 'julia', 'ari']:
+        if cat in ['hop', 'pom', 'sun', 'alex', 'cheese', 'julia', 'ari', 'nameerror']:
             del self.fields['shabbat_dinner']
-        if cat in ['pom', 'sing', 'julia', 'ari']:
+        if cat in ['pom', 'sing', 'julia', 'ari', 'nameerror']:
             del self.fields['welcome_dinner']
-        if cat in ['pom', 'sing', 'julia', 'ari']:
+        if cat in ['pom', 'sing', 'julia', 'ari', 'nameerror']:
             del self.fields['welcome_dietary_restrictions']
-        if cat in ['hop', 'pom', 'alex', 'julia', 'ari']:
+        if cat in ['hop', 'pom', 'alex', 'julia', 'ari', 'nameerror']:
             del self.fields['tues_am']
-        if cat in ['pom', 'silk', 'sing', 'sun', 'julia', 'ari']:
+        if cat in ['pom', 'silk', 'sing', 'sun', 'julia', 'ari', 'nameerror']:
             del self.fields['tues_pm']
 
     class Meta:
         model = Guest
-        fields = ['shabbat_dinner',
+        fields = ['first_last', 'shabbat_dinner',
         'welcome_dinner', 'welcome_dietary_restrictions', 'wedding',
-        'wedding_meal', 'tues_am', 'tues_pm',]
-
+        'wedding_meal', 'tues_am', 'tues_pm', 'song_request', 'comments']
+        label_suffix = ""
 
 
 

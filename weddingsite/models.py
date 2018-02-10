@@ -91,7 +91,7 @@ WELCOME_CHOICES = (
     ('3', 'Vegan'),
     ('4', 'Gluten-free'),
     ('5', 'No meat with milk'),
-    ('6', 'Other'),
+    ('6', 'Other (please elaborate in comments section)'),
 )
 
 WEDDING_CHOICES = (
@@ -100,27 +100,8 @@ WEDDING_CHOICES = (
 )
 
 
-
-# class RSVPFirstManager(models.Manager):
-#
-#
-#     def rsvp_form_by_category(self):
-#         cat = self.get_category()
-#         if cat in ['hop', 'pom', 'sun', 'alex', 'cheese', 'julia', 'ari']:
-#             del self.fields['shabbat_dinner']
-#         if cat in ['pom', 'sing', 'julia', 'ari']:
-#             del self.fields['welcome_dinner']
-#         if cat in ['pom', 'sing', 'julia', 'ari']:
-#             del self.fields['welcome_dietary_restrictions']
-#         if cat in ['hop', 'pom', 'alex', 'julia', 'ari']:
-#             del self.fields['tues_am']
-#         if cat in ['pom', 'silk', 'sing', 'sun', 'julia', 'ari']:
-#             del self.fields['tues_pm']
-
-
 class RSVPFirstModel(models.Model):
     your_name = models.CharField(default=None, max_length=100)
-    # objects = RSVPFirstManager()
 
     def __unicode__(self):
         return u"%s" % (self.your_name)
@@ -133,25 +114,31 @@ class Guest(models.Model):
     app_label = 'weddingsite'
     first_last = models.OneToOneField('RSVPFirstModel', unique=True, on_delete=models.CASCADE, null=True, blank=True)
     shabbat_dinner = models.NullBooleanField(verbose_name=
-    'Will you be able to attend Shabbat dinner on Friday, July 20th?', default=None, blank=True)
+    '\nWill you be able to attend Shabbat dinner on Friday, July 20th?\n\n', default=None, blank=True)
     welcome_dinner = models.NullBooleanField(verbose_name=
-    'Will you be able to attend the welcome dinner on Sunday, July 22nd?',
+    '\nWill you be able to attend the welcome dinner on Sunday, July 22nd?\n\n',
     default=None, blank=True)
     welcome_dietary_restrictions = models.CharField(verbose_name=
-    'Do you have any dietary restrictions?', max_length=6,
+    '\nDo you have any dietary restrictions?\n\n', max_length=6,
     choices=WELCOME_CHOICES, default='1', blank=True)
     wedding = models.NullBooleanField(verbose_name=
-    'Will you be able to attend the wedding on Monday, July 23rd?',
+    '\nWill you be able to attend the wedding on Monday, July 23rd?\n\n',
     default=None, blank=True)
     wedding_meal = models.CharField(verbose_name=
-    'At the wedding, I would like to eat:', max_length=2,
+    '\nAt the wedding, I would like to eat:\n\n', max_length=2,
     choices=WEDDING_CHOICES, default='1', blank=True)
     tues_am = models.NullBooleanField(
-    verbose_name='Will you be able to come to brunch on Tuesday, July 24th?',
+    verbose_name='\nWill you be able to come to brunch on Tuesday, July 24th?\n\n',
     default=None, blank=True)
     tues_pm = models.NullBooleanField(
-    verbose_name='Will you be able to come to the gathering on Tuesday, July 24th?',
-    default=None, blank=True)
+    verbose_name='\nWill you be able to come to the gathering on Tuesday, July 24th?\n\n',
+    default=None, blank=True, )
+    song_request = models.TextField(
+    verbose_name='\nI would dance if I heard this song:\n',
+    blank=True, )
+    comments = models.TextField(
+    verbose_name='\nComments for the couple!\n',
+    blank=True, )
 
     @property
     def name(self):

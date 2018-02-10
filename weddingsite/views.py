@@ -137,11 +137,9 @@ def TestPage1(request):
             request.session['category'] = f
             return HttpResponseRedirect('/test/')
         else:
-            form = NameForm()
-
+            form = RSVPFirstForm()
     else:
         pass
-
     return render(request, "blog/testpage1.html", {'form': form})
 
 
@@ -151,51 +149,42 @@ def FormTest(request):
     form_class = RSVPResponseForm
     form = form_class(request.POST)
 
-    if request.method == 'GET':
-        form = RSVPResponseForm()
-        f = form.select_questions(cat)
+    if cat == 'nameerror':
+        return HttpResponseRedirect('/Four_Oh_Four/')
+    else:
+        if request.method == 'GET':
+            form = RSVPResponseForm()
+            f = form.select_questions(cat)
 
-    if request.method == 'POST':
-        if form.is_valid():
-            # Create a form instance from POST data.
-            form = form_class(request.POST)
-            # import pdb; pdb.set_trace()
-            # Save a new entry object from the form's data.
-            form.save(commit=True)
-            return HttpResponseRedirect('/thanks/')
-        else:
-            raise Http404
-
-    # else:
-    #     form = RSVPResponseForm()
-
+        if request.method == 'POST':
+            if form.is_valid():
+                # Create a form instance from POST data.
+                form = form_class(request.POST)
+                # Save a new entry object from the form's data.
+                form.save(commit=True)
+                return HttpResponseRedirect('/thanks/')
+            else:
+                raise Http404
     return render(request, "blog/form_test.html", {'form': form})
 
+def Four_Oh_Four(request):
 
-    # form = RSVPQuestions(request.POST)
-    # if request.method == 'POST':
-    #     form = RSVPQuestions(request.POST)
-    #     s = requests.session('category')
-    #     rsvp_name = s.get('category')
-    #
-    #     if form.is_valid:
-    #         model_instance = form.save(commit=False)
-    #         model_instance.timestamp = timezone.now()
-    #         model_instance.save()
-    #
-    #         # welcome_dinner = request.POST.get('welcome_dinner', '')
-    #         # download_dir = "rsvp_responses.csv"
-    #         # csv = open(download_dir, "a")
-    #         # csv.write(welcome_dinner)
-    #
-    #         return HttpResponseRedirect('/thanks/')
-    #     else:
-    #         pass
-    # else:
-    #     form = RSVPQuestions(rsvp_name)
-    #
-    # return render(request, 'blog/rsvp_second.html', {'form': form})
+    form_class = RSVPFirstForm
+    form = form_class(request.POST)
 
+    if request.method == 'GET':
+        form = RSVPFirstForm()
+    if request.method == 'POST':
+        form = RSVPFirstForm()
+        if form.is_valid():
+            f = form.get_category()
+            request.session['category'] = f
+            return HttpResponseRedirect('/test/')
+        else:
+            form = RSVPFirstForm()
+    else:
+        return HttpResponseRedirect('/thanks/')
+    return render(request, "blog/Four_Oh_Four.html", {'form': form})
 
 def event_thanks(request):
     return render(request, 'blog/event_thanks.html')
