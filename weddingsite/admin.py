@@ -1,11 +1,10 @@
 from django.contrib import admin
-from .models import Guest, Party, TestModel
+from .models import Guest, RSVPFirstModel
 
-admin.site.register(Party)
-admin.site.register(TestModel)
+admin.site.register(RSVPFirstModel)
 
 class RSVPAdmin(admin.ModelAdmin):
-    list_display = ('first_name', 'last_name', 'shabbat_dinner',
+    list_display = ('first_last', 'shabbat_dinner',
     'welcome_dinner', 'welcome_dietary_restrictions', 'wedding',
     'wedding_meal', 'tues_am', 'tues_pm')
 

@@ -6,7 +6,59 @@ from django.core.mail import send_mass_mail
 from django.template import loader, Context
 from django.conf import settings
 from django.contrib.sites.models import Site
+# from .forms import HOP_W_PM, COOL_KIDS_ALL, POM_WEDDING, SILK_W_S_AM,
+# MAUI_W_S_CHOICE, SING_S_AM, SUN_W_AM, ALEX, CHEESE_W_AM_PM, JULIA, ARI
 
+HOP_W_PM = [
+    'rachel insoft', 'phil masui', 'philip masui', 'mary awadallah',
+    'mary shehata', 'michael shehata', 'mike shehata', 'christina amendola',
+    'chrissy amendola', 'vince gaviria', 'vincent gaviria',
+    'amanda delshad', 'amanda mintzer', 'danny mintzer',
+    'celeste conrad', 'celeste holmes', 'jay holmes', 'ashley budasoff',
+    'larry budasoff', 'lawrence budasoff', 'adin insoft',
+    'leah kandel', 'jacob newman', 'kendrice newman',
+    'kendrice james', 'clay thibodeaux', 'tari tan', 'taralyn tan'
+    'ian mclachlan', 'milner', 'elliott milner',
+    'e. s. milner', 'e s milner', 'saul glasman', 'nicole neubarth',
+    'alan emanuel', 'kaori graybeal', 'matthias minderer',
+    'christina welsh', 'dan millman', 'daniel millman', 'rebecca yang',
+    'alex wiltschko', 'katherine gorman', 'ryan heisler', 'etta king',
+    'etta heisler']
+
+COOL_KIDS_ALL = ['rebecca caine', 'john light', 'ben caine', 'anna caine']
+
+POM_WEDDING = ['raphael koster', 'avi ruderman', 'priya ruderman',
+'francis song', 'sam ritter', 'samuel ritter', 'cotie long', 'kim stachenfeld',
+'kimberly stachenfeld', 'neil rabinowitz', 'jo rabinowitz', 'sonia rego',
+'matt kusner', 'matthew kusner']
+
+SILK_W_S_AM = ['claire caine', 'dan caine', 'daniel caine', 'jerome socolovsky',
+'petra glimaker', 'emanuel socolovsky', 'shoshi socolovsky', 'shosh socolovsky',
+'eviatar socolovsky', 'yaara socolovsky', 'caroline ertz', 'greg ertz',
+'maria socolovsky']
+
+MAUI_W_S_CHOICE = ['mendel socolovsky', 'nils socolovsky', 'eviatar socolovsky',
+'ronli socolovsky', 'ron li socolovsky', 'tomer socolovsky']
+
+SING_S_AM = ['janet tanzi', 'dena glasgow', 'jason glasgow', 'heather zacker',
+'david harlow', 'sheryl marcus', 'alan marcus', 'marcia leifer', 'alan leifer',
+'wes gardenswartz', 'wesley gardenswartz', 'shira gardenswartz', 'merle hass',
+'sylvain korzennik', 'sue bergman', 'barry bergman', 'susan bergman',
+'vicki isman', 'marshall isman', 'michael kane', 'sue kane', 'bob wake',
+'marcia wake', 'beth davis', 'maerton davis']
+
+SUN_W_AM = ['rob insoft', 'robert insoft', 'andie insoft', 'tova morcos',
+'samir morcos', 'jared kliger', 'philip freed', 'linda freed',
+'linda rich freed', 'linda rich', 'chris harvey', 'christopher harvey',
+'lauren orefice', 'shalva greenbaum']
+
+ALEX = ['alex trott', 'alexander trott']
+
+CHEESE_W_AM_PM = ['dahlia greenbaum', 'daniel greenbaum',]
+
+JULIA = ['julia caine']
+
+ARI = ['ari morcos']
 
 SHABBAT_ATTENDING_CHOICES = (
     ('yes', 'Don\'t be meshuga, of course I\'ll be there!'),
@@ -47,64 +99,91 @@ WEDDING_CHOICES = (
     ('2', 'Red lentil coconut curry, grilled sweetcorn and courgette, and crisp rice balls'),
 )
 
-class TestModel(models.Model):
-    name = models.TextField(max_length=128, unique=True)
-    category = models.CharField(max_length=20, null=True, blank=True)
-    shabbat_dinner = models.NullBooleanField(default=None)
-    welcome_dinner = models.BooleanField(default=False)
+
+
+# class RSVPFirstManager(models.Manager):
+#
+#
+#     def rsvp_form_by_category(self):
+#         cat = self.get_category()
+#         if cat in ['hop', 'pom', 'sun', 'alex', 'cheese', 'julia', 'ari']:
+#             del self.fields['shabbat_dinner']
+#         if cat in ['pom', 'sing', 'julia', 'ari']:
+#             del self.fields['welcome_dinner']
+#         if cat in ['pom', 'sing', 'julia', 'ari']:
+#             del self.fields['welcome_dietary_restrictions']
+#         if cat in ['hop', 'pom', 'alex', 'julia', 'ari']:
+#             del self.fields['tues_am']
+#         if cat in ['pom', 'silk', 'sing', 'sun', 'julia', 'ari']:
+#             del self.fields['tues_pm']
+
+
+class RSVPFirstModel(models.Model):
+    your_name = models.CharField(default=None, max_length=100)
+    # objects = RSVPFirstManager()
 
     def __unicode__(self):
-        return self.name
-
-
-class Party(models.Model):
-    """
-    A party consists of one or more guests.
-    """
-    name = models.TextField()
-    category = models.CharField(max_length=20, null=True, blank=True)
-    shabbat_dinner = models.NullBooleanField(default=None)
-    welcome_dinner = models.BooleanField(default=False)
-    wedding = models.NullBooleanField(default=None)
-    tues_am = models.NullBooleanField(default=None)
-    tues_pm = models.NullBooleanField(default=None)
-    comments = models.TextField(null=True, blank=True)
-
-    def __unicode__(self):
-        return 'Party: {}'.format(self.name)
-
-    @classmethod
-    def in_default_order(cls):
-        return cls.objects.order_by('category', 'name')
-
-    @property
-    def ordered_guests(self):
-        return self.guest_set.order_by('is_child', 'pk')
-
-    @property
-    def any_guests_attending(self):
-        return any(self.guest_set.values_list('is_attending', flat=True))
+        return u"%s" % (self.your_name)
 
 
 class Guest(models.Model):
     """
     A single guest
     """
-    first_name = models.TextField()
-    last_name = models.TextField()
-    shabbat_dinner = models.NullBooleanField(default=None)
-    welcome_dinner = models.NullBooleanField(default=None)
-    welcome_dietary_restrictions = models.CharField(max_length=6,
-    choices=WELCOME_CHOICES, default='1')
-    wedding = models.NullBooleanField(default=None)
-    wedding_meal = models.CharField(max_length=2,
-    choices=WEDDING_CHOICES, default='1')
-    tues_am = models.NullBooleanField(default=None)
-    tues_pm = models.NullBooleanField(default=None)
+    app_label = 'weddingsite'
+    first_last = models.OneToOneField('RSVPFirstModel', unique=True, on_delete=models.CASCADE, null=True, blank=True)
+    shabbat_dinner = models.NullBooleanField(verbose_name=
+    'Will you be able to attend Shabbat dinner on Friday, July 20th?', default=None, blank=True)
+    welcome_dinner = models.NullBooleanField(verbose_name=
+    'Will you be able to attend the welcome dinner on Sunday, July 22nd?',
+    default=None, blank=True)
+    welcome_dietary_restrictions = models.CharField(verbose_name=
+    'Do you have any dietary restrictions?', max_length=6,
+    choices=WELCOME_CHOICES, default='1', blank=True)
+    wedding = models.NullBooleanField(verbose_name=
+    'Will you be able to attend the wedding on Monday, July 23rd?',
+    default=None, blank=True)
+    wedding_meal = models.CharField(verbose_name=
+    'At the wedding, I would like to eat:', max_length=2,
+    choices=WEDDING_CHOICES, default='1', blank=True)
+    tues_am = models.NullBooleanField(
+    verbose_name='Will you be able to come to brunch on Tuesday, July 24th?',
+    default=None, blank=True)
+    tues_pm = models.NullBooleanField(
+    verbose_name='Will you be able to come to the gathering on Tuesday, July 24th?',
+    default=None, blank=True)
 
     @property
     def name(self):
-        return u'{} {}'.format(self.first_name, self.last_name)
+        return u'{}'.format(self.first_last)
 
     def __unicode__(self):
-        return 'Guest: {} {}'.format(self.first_name, self.last_name)
+        return 'Guest: {}'.format(self.first_last)
+
+# class Party(models.Model):
+#     """
+#     A party consists of one or more guests.
+#     """
+#     name = models.TextField()
+#     category = models.CharField(max_length=20, null=True, blank=True)
+#     shabbat_dinner = models.NullBooleanField(default=None)
+#     welcome_dinner = models.BooleanField(default=False)
+#     wedding = models.NullBooleanField(default=None)
+#     tues_am = models.NullBooleanField(default=None)
+#     tues_pm = models.NullBooleanField(default=None)
+#     comments = models.TextField(null=True, blank=True)
+#
+#     def __unicode__(self):
+#         return 'Party: {}'.format(self.name)
+#
+#     @classmethod
+#     def in_default_order(cls):
+#         return cls.objects.order_by('category', 'name')
+#
+#     @property
+#     def ordered_guests(self):
+#         return self.guest_set.order_by('is_child', 'pk')
+#
+#     @property
+#     def any_guests_attending(self):
+#         return any(self.guest_set.values_list('is_attending', flat=True))

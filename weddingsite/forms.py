@@ -4,7 +4,7 @@ from django.forms import fields, CheckboxInput, ModelForm
 from django.db import models
 from django.utils.translation import ugettext as _
 from django.core.exceptions import ObjectDoesNotExist
-from .models import WEDDING_ATTENDING_CHOICES, WELCOME_CHOICES, WEDDING_CHOICES, TUES_AM_ATTENDING_CHOICES, TUES_PM_ATTENDING_CHOICES, WELCOME_ATTENDING_CHOICES, SHABBAT_ATTENDING_CHOICES, Guest, TestModel
+from .models import WEDDING_ATTENDING_CHOICES, WELCOME_CHOICES, WEDDING_CHOICES, TUES_AM_ATTENDING_CHOICES, TUES_PM_ATTENDING_CHOICES, WELCOME_ATTENDING_CHOICES, SHABBAT_ATTENDING_CHOICES, Guest, RSVPFirstModel
 from django.forms.formsets import formset_factory
 from django.forms.forms import NON_FIELD_ERRORS
 # from crispy_forms.helper import FormHelper
@@ -100,6 +100,75 @@ class NameForm(forms.Form):
             new_page = '/nameerror/'
         return new_page
 
+# input name, output category
+class RSVPFirstForm(forms.ModelForm):
+
+    def clean_name(self):
+        cleaned_name = self.data['your_name'].lower()
+        return cleaned_name
+
+    def get_category(self):
+        cleaned_name = self.clean_name()
+
+        if cleaned_name in HOP_W_PM:
+            category = 'hop'
+        elif cleaned_name in COOL_KIDS_ALL:
+            category = 'cool-kids'
+        elif cleaned_name in POM_WEDDING:
+            category = 'pom'
+        elif cleaned_name in SILK_W_S_AM:
+            category = 'silk'
+        elif cleaned_name in MAUI_W_S_CHOICE:
+            category = 'maui'
+        elif cleaned_name in SING_S_AM:
+            category = 'sing'
+        elif cleaned_name in SUN_W_AM:
+            category = 'sun'
+        elif cleaned_name in ALEX:
+            category = 'alex'
+        elif cleaned_name in CHEESE_W_AM_PM:
+            category = 'cheese'
+        elif cleaned_name in JULIA:
+            category = 'julia'
+        elif cleaned_name in ARI:
+            category = 'ari'
+        elif cleaned_name == 'claire caine':
+            category = 'julia'
+        else:
+            category = 'nameerror'
+        return category
+
+    class Meta:
+        model = RSVPFirstModel
+        fields = ['your_name']
+        required=None
+
+
+class RSVPResponseForm(forms.ModelForm):
+    # def __init__(self, cat):
+    #
+    #     super().__init__()
+    def select_questions(self, cat):
+
+        if cat in ['hop', 'pom', 'sun', 'alex', 'cheese', 'julia', 'ari']:
+            del self.fields['shabbat_dinner']
+        if cat in ['pom', 'sing', 'julia', 'ari']:
+            del self.fields['welcome_dinner']
+        if cat in ['pom', 'sing', 'julia', 'ari']:
+            del self.fields['welcome_dietary_restrictions']
+        if cat in ['hop', 'pom', 'alex', 'julia', 'ari']:
+            del self.fields['tues_am']
+        if cat in ['pom', 'silk', 'sing', 'sun', 'julia', 'ari']:
+            del self.fields['tues_pm']
+
+    class Meta:
+        model = Guest
+        fields = ['shabbat_dinner',
+        'welcome_dinner', 'welcome_dietary_restrictions', 'wedding',
+        'wedding_meal', 'tues_am', 'tues_pm',]
+
+
+
 
 class RSVPMain(forms.Form):
 
@@ -139,11 +208,6 @@ class RSVPMain(forms.Form):
         return category
 
 class RSVPQuestions(forms.Form):
-    # class Meta:
-    #     model = Guest
-    #     fields = ['first_name', 'last_name', 'shabbat_dinner',
-    #     'welcome_dinner', 'welcome_meal', 'wedding', 'wedding_meal',
-    #     'tues_am', 'tues_pm', 'is_child']
 
     def __init__(self, category):
 
@@ -194,12 +258,7 @@ class RSVPQuestions(forms.Form):
             self.fields['iloveyou'] = forms.CharField(label='I love you', max_length=100)
 
 
-class TestForm(forms.ModelForm):
-    class Meta:
-        model = Guest
-        fields = ['first_name', 'last_name', 'shabbat_dinner',
-        'welcome_dinner', 'welcome_dietary_restrictions', 'wedding',
-        'wedding_meal', 'tues_am', 'tues_pm']
+
 
 
 # class RSVPForm(forms.Form):

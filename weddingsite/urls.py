@@ -33,6 +33,7 @@ urlpatterns = [
     url(r'^ari/$', views.ari, name='ari'),
     url(r'^thanks/$', views.event_thanks, name='rsvp_event_thanks'),
     url(r'^test/$', views.FormTest, name='form_test'),
+    url(r'^testpage1/$', views.TestPage1, name='testpage1'),
     url(r'^admin/', admin.site.urls),
 ]
 

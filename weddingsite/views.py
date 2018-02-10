@@ -9,11 +9,10 @@ from django.template import RequestContext
 from django.shortcuts import redirect
 from django.template import Context
 from django.template.loader import get_template
-from .forms import NameForm, RSVPMain, RSVPQuestions, TestForm
-import csv
+from .forms import NameForm, RSVPMain, RSVPQuestions, RSVPFirstForm, RSVPResponseForm
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import TestModel
+from .models import RSVPFirstModel, Guest
 
 def home(request):
     return render(request, 'blog/home.html')
@@ -26,9 +25,6 @@ def hotels(request):
 
 def registry(request):
     return render(request, 'blog/registry.html')
-
-# def rsvp(request):
-#     return render(request, 'blog/rsvp.html')
 
 def photos(request):
     return render(request, 'blog/photos.html')
@@ -107,9 +103,7 @@ def RSVPInit(request):
         rsvpform = RSVPMain(request.POST)
 
         if rsvpform.is_valid():
-            # import pdb; pdb.set_trace()
-            # rsvpform.save
-            request.session['category'] = 'hop'
+            # request.session['category'] = 'hop'
             return HttpResponseRedirect('/rsvp2/')
         else:
             pass
@@ -132,22 +126,48 @@ def RSVPSecond(request):
 
     return render(request, 'blog/rsvp_second.html', {'form': form})
 
-def FormTest(request):
+def TestPage1(request):
+
+    form_class = RSVPFirstForm
+    form = form_class(request.POST)
+
     if request.method == 'POST':
-        form = TestForm(request.POST)
+        if form.is_valid():
+            f = form.get_category()
+            request.session['category'] = f
+            return HttpResponseRedirect('/test/')
+        else:
+            form = NameForm()
+
+    else:
+        pass
+
+    return render(request, "blog/testpage1.html", {'form': form})
+
+
+def FormTest(request):
+
+    cat = request.session['category']
+    form_class = RSVPResponseForm
+    form = form_class(request.POST)
+
+    if request.method == 'GET':
+        form = RSVPResponseForm()
+        f = form.select_questions(cat)
+
+    if request.method == 'POST':
         if form.is_valid():
             # Create a form instance from POST data.
-            f = TestForm(request.POST)
+            form = form_class(request.POST)
+            # import pdb; pdb.set_trace()
             # Save a new entry object from the form's data.
-            f.save(commit=True)
-            # Create a form to edit an existing entry, but use
-            # POST data to populate the form.
-            # a = new_entry.objects.get(pk=1)
-            # f = TestForm(request.POST, instance=a)
-            # f.save()
-            return redirect('/thanks/')
-    else:
-        form = TestForm()
+            form.save(commit=True)
+            return HttpResponseRedirect('/thanks/')
+        else:
+            raise Http404
+
+    # else:
+    #     form = RSVPResponseForm()
 
     return render(request, "blog/form_test.html", {'form': form})
 
