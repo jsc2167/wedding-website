@@ -135,6 +135,8 @@ def TestPage1(request):
         if form.is_valid():
             f = form.get_category()
             request.session['category'] = f
+            n = form.clean_name()
+            request.session['your_name'] = n
             return HttpResponseRedirect('/test/')
         else:
             form = RSVPFirstForm()
@@ -153,7 +155,9 @@ def FormTest(request):
         return HttpResponseRedirect('/Four_Oh_Four/')
     else:
         if request.method == 'GET':
-            form = RSVPResponseForm()
+            data = {'first_last' : request.session['your_name']}
+            # import pdb; pdb.set_trace()
+            form = RSVPResponseForm(initial=data)
             f = form.select_questions(cat)
 
         if request.method == 'POST':

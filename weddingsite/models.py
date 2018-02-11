@@ -112,7 +112,7 @@ class Guest(models.Model):
     A single guest
     """
     app_label = 'weddingsite'
-    first_last = models.OneToOneField('RSVPFirstModel', unique=True, on_delete=models.CASCADE, null=True, blank=True)
+    first_last = models.CharField(verbose_name='Your name:', blank=True, default='%s', max_length=128)
     shabbat_dinner = models.NullBooleanField(verbose_name=
     '\nWill you be able to attend Shabbat dinner on Friday, July 20th?\n\n', default=None, blank=True)
     welcome_dinner = models.NullBooleanField(verbose_name=
