@@ -86,17 +86,17 @@ TUES_PM_ATTENDING_CHOICES = (
 )
 
 WELCOME_CHOICES = (
-    ('1', 'None'),
-    ('2', 'Vegetarian'),
-    ('3', 'Vegan'),
-    ('4', 'Gluten-free'),
-    ('5', 'No meat with milk'),
-    ('6', 'Other (please elaborate in comments section)'),
+    ('None', 'None'),
+    ('Veggie', 'Vegetarian'),
+    ('Vegan', 'Vegan'),
+    ('GF', 'Gluten-free'),
+    ('Kosh', 'No meat with milk'),
+    ('Other', 'Other (please elaborate in comments section)'),
 )
 
 WEDDING_CHOICES = (
-    ('1', 'Ricotta and spinach malfatti with sage butter and parmesan crisps',),
-    ('2', 'Red lentil coconut curry, grilled sweetcorn and courgette, and crisp rice balls'),
+    ('malfatti', 'Ricotta and spinach malfatti with sage butter and parmesan crisps (vegetarian)',),
+    ('curry', 'Red lentil coconut curry, grilled sweetcorn and courgette, and crisp rice balls (vegan)'),
 )
 
 
@@ -112,9 +112,11 @@ class Guest(models.Model):
     A single guest
     """
     app_label = 'weddingsite'
-    first_last = models.CharField(verbose_name='Your name:', blank=True, default='%s', max_length=128)
+    first_last = models.CharField(verbose_name='Your name:', blank=True,
+    default='%s', max_length=128)
     shabbat_dinner = models.NullBooleanField(verbose_name=
-    '\nWill you be able to attend Shabbat dinner on Friday, July 20th?\n\n', default=None, blank=True)
+    '\nWill you be able to attend Shabbat dinner on Friday, July 20th?\n\n',
+    default=None, blank=True)
     welcome_dinner = models.NullBooleanField(verbose_name=
     '\nWill you be able to attend the welcome dinner on Sunday, July 22nd?\n\n',
     default=None, blank=True)
@@ -126,7 +128,7 @@ class Guest(models.Model):
     default=None, blank=True)
     wedding_meal = models.CharField(verbose_name=
     '\nAt the wedding, I would like to eat:\n\n', max_length=2,
-    choices=WEDDING_CHOICES, default='1', blank=True)
+    choices=WEDDING_CHOICES, default=None, blank=True)
     tues_am = models.NullBooleanField(
     verbose_name='\nWill you be able to come to brunch on Tuesday, July 24th?\n\n',
     default=None, blank=True)
@@ -134,11 +136,11 @@ class Guest(models.Model):
     verbose_name='\nWill you be able to come to the gathering on Tuesday, July 24th?\n\n',
     default=None, blank=True, )
     song_request = models.TextField(
-    verbose_name='\nI would dance if I heard this song:\n',
-    blank=True, )
+    verbose_name='I would dance if I heard this song:', default = 'YMCA by The Village People',
+    blank=True, max_length=2048)
     comments = models.TextField(
-    verbose_name='\nComments for the couple!\n',
-    blank=True, )
+    verbose_name='Comments for the couple!', default='I\'m so excited to come!',
+    blank=True, max_length=2048, )
 
     @property
     def name(self):

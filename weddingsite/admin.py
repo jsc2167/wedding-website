@@ -4,9 +4,55 @@ from .models import Guest, RSVPFirstModel
 admin.site.register(RSVPFirstModel)
 
 class RSVPAdmin(admin.ModelAdmin):
-    list_display = ('first_last', 'shabbat_dinner',
-    'welcome_dinner', 'welcome_dietary_restrictions', 'wedding',
-    'wedding_meal', 'tues_am', 'tues_pm', 'song_request', 'comments')
+    def name(self, obj):
+        return("%s" % (obj.first_last))
+    name.short_description = "Name"
+
+    def shabbat(self, obj):
+        return("%s" % (obj.shabbat_dinner))
+    shabbat.short_description = "Shabbat"
+
+    def welcome(self, obj):
+        return("%s" % (obj.welcome_dinner))
+    welcome.short_description = "Welcome dinner"
+
+    def welcome_food(self, obj):
+        return("%s" % (obj.welcome_dietary_restrictions))
+    welcome_food.short_description = "Welcome food"
+
+    def wed(self, obj):
+        return("%s" % (obj.wedding))
+    wed.short_description = "Wedding"
+
+    def wed_food(self, obj):
+        return("%s" % (obj.wedding_meal))
+    wed_food.short_description = "Wedding food"
+
+    def tuesam(self, obj):
+        return("%s" % (obj.tues_am))
+    tuesam.short_description = "Tues AM"
+
+
+    def tuespm(self, obj):
+        return("%s" % (obj.tues_pm))
+    tuespm.short_description = "Tues PM"
+
+
+    def song(self, obj):
+        return("%s" % (obj.song_request))
+    song.short_description = "Song"
+
+
+    def comment(self, obj):
+        return("%s" % (obj.comments))
+    comment.short_description = "Comments"
+
+    list_display = ('name', 'shabbat',
+    'welcome', 'welcome_food', 'wed',
+    'wed_food', 'tuesam', 'tuespm', 'song_request', 'comments')
+
+
+
 
 admin.site.register(Guest, RSVPAdmin)
 

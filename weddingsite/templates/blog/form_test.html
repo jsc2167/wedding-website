@@ -7,8 +7,20 @@
 <form class="RSVP-form-style" method="post" action="/test/">
   <div class="form-group">
     {% csrf_token %}
-      {{ form|linebreaks }}
+
+        {% for field in form %}
+
+        <div class="space-form-style">
+            <label class="col-sm-12 control-label" for="{{ field.name }}">{{ field.label }} : </label>
+
+            <div class="col-sm-12">
+                {{ field }}
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
     <button class="btn rsvp-form-button">Submit</button>
-  </div>
+    <br />
 </form>
 {% endblock %}

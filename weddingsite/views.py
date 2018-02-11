@@ -156,7 +156,6 @@ def FormTest(request):
     else:
         if request.method == 'GET':
             data = {'first_last' : request.session['your_name']}
-            # import pdb; pdb.set_trace()
             form = RSVPResponseForm(initial=data)
             f = form.select_questions(cat)
 

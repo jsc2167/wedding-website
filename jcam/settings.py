@@ -57,7 +57,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     # 'weddingsite.apps.WeddingsiteConfig',
     'weddingsite',
-    # 'crispy_forms'
+    'floppyforms'
 ]
 
 MIDDLEWARE = [

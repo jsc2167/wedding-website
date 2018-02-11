@@ -112,22 +112,6 @@ button, input, select, textarea {
   font-size   : 100%;
 }
 
-/*  Trying to style radio buttons */
-
-.blueForms {
-  color: 'green';
-}
-
-#id-exampleForm {
-  color: 'blue';
-}
-
-li:hover {
-	color: #A1B7CD;
-}
-
-/* End trying to style radio buttons */
-
 .form-style {
   font-family: 'Raleway', 'Vollkorn SC', 'Dancing Script';
   text-align: center;
@@ -142,6 +126,13 @@ li:hover {
   list-style: none;
   padding-left: 15%;
   list-style: none;
+}
+
+.space-form-style {
+  padding-left: 10%;
+  width: 80%;
+  padding-right: 10%;
+  padding-top: 10px;
 }
 
 td, th {
@@ -175,6 +166,8 @@ td, th {
   background: linear-gradient(+45deg, #414E5E, #A1B7CD);
   color: #FFFFFF;
   border: none;
+  padding-left: 40%;
+  padding-right: 40%;
 }
 
 .page-header {
