@@ -3,7 +3,7 @@ from django.utils import timezone
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 import datetime
 import requests
-from django.core.exceptions import ObjectDoesNotExist
+from django.core.exceptions import ObjectDoesNotExist, ValidationError
 from django.urls import reverse
 from django.template import RequestContext
 from django.shortcuts import redirect
@@ -82,6 +82,9 @@ def julia(request):
 def ari(request):
     return render(request, 'blog/ari.html')
 
+def RsvpError(request):
+    return render(request, 'blog/rsvperror.html')
+
 def nameerror(request):
     if request.method == 'POST':
         form = NameForm(request.POST)
@@ -133,11 +136,17 @@ def TestPage1(request):
 
     if request.method == 'POST':
         if form.is_valid():
-            f = form.get_category()
-            request.session['category'] = f
-            n = form.clean_name()
-            request.session['your_name'] = n
-            return HttpResponseRedirect('/test/')
+            in_database = Guest.objects.exists()
+            # import pdb; pdb.set_trace()
+            if in_database == True:
+                return HttpResponseRedirect('/nameerror/')
+            else:
+                import pdb; pdb.set_trace()
+                f = form.get_category()
+                request.session['category'] = f
+                n = form.clean_name()
+                request.session['your_name'] = n
+                return HttpResponseRedirect('/test/')
         else:
             form = RSVPFirstForm()
     else:

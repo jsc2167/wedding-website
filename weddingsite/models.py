@@ -106,6 +106,11 @@ class RSVPFirstModel(models.Model):
     def __unicode__(self):
         return u"%s" % (self.your_name)
 
+class GuestManager(models.Manager):
+    def in_db(self):
+        nm = self.filter(first_last='your_name').exists()
+        return nm
+
 
 class Guest(models.Model):
     """
@@ -148,6 +153,10 @@ class Guest(models.Model):
 
     def __unicode__(self):
         return 'Guest: {}'.format(self.first_last)
+
+    # objects = GuestManager()
+
+
 
 # class Party(models.Model):
 #     """

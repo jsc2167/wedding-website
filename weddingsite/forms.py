@@ -7,7 +7,6 @@ from django.core.exceptions import ObjectDoesNotExist
 from .models import WEDDING_ATTENDING_CHOICES, WELCOME_CHOICES, WEDDING_CHOICES, TUES_AM_ATTENDING_CHOICES, TUES_PM_ATTENDING_CHOICES, WELCOME_ATTENDING_CHOICES, SHABBAT_ATTENDING_CHOICES, Guest, RSVPFirstModel
 from django.forms.formsets import formset_factory
 from django.forms.forms import NON_FIELD_ERRORS
-# import floppyforms as forms
 
 
 HOP_W_PM = [
