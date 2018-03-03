@@ -105,11 +105,11 @@ class RSVPFirstModel(models.Model):
 
     def __unicode__(self):
         return u"%s" % (self.your_name)
-
-class GuestManager(models.Manager):
-    def in_db(self):
-        nm = self.filter(first_last='your_name').exists()
-        return nm
+#
+# class GuestManager(models.Manager):
+#     def in_db(self):
+#         nm = self.filter(first_last='your_name').exists()
+#         return nm
 
 
 class Guest(models.Model):

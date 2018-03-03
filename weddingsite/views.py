@@ -9,7 +9,7 @@ from django.template import RequestContext
 from django.shortcuts import redirect
 from django.template import Context
 from django.template.loader import get_template
-from .forms import NameForm, RSVPMain, RSVPQuestions, RSVPFirstForm, RSVPResponseForm
+from .forms import NameForm, RSVPFirstForm, RSVPResponseForm
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import RSVPFirstModel, Guest
@@ -100,61 +100,30 @@ def nameerror(request):
     return render(request, 'blog/nameerror.html', {'form': form})
 
 #make RSVP form save responses to database
-def RSVPInit(request):
-    rsvpform = RSVPMain(request.POST)
-    if request.method == 'POST':
-        rsvpform = RSVPMain(request.POST)
-
-        if rsvpform.is_valid():
-            # request.session['category'] = 'hop'
-            return HttpResponseRedirect('/rsvp2/')
-        else:
-            pass
-    else:
-        rsvpform = RSVPMain()
-
-    return render(request, 'blog/rsvp_init.html', {'rsvpform': rsvpform})
-
-def RSVPSecond(request):
-    if request.method == 'POST':
-        form = RSVPQuestions(request.POST)
-
-        if form.is_valid:
-            category = request.session['category']
-            return HttpResponseRedirect('/thanks/')
-        else:
-            pass
-    else:
-            form = RSVPQuestions(request.POST)
-
-    return render(request, 'blog/rsvp_second.html', {'form': form})
-
-def TestPage1(request):
+def RSVP1(request):
 
     form_class = RSVPFirstForm
-    form = form_class(request.POST)
+    form = form_class(request.POST or None)
 
     if request.method == 'POST':
         if form.is_valid():
-            in_database = Guest.objects.exists()
-            # import pdb; pdb.set_trace()
-            if in_database == True:
-                return HttpResponseRedirect('/nameerror/')
-            else:
-                import pdb; pdb.set_trace()
-                f = form.get_category()
-                request.session['category'] = f
-                n = form.clean_name()
-                request.session['your_name'] = n
-                return HttpResponseRedirect('/test/')
+            # in_database = Guest.objects.exists()
+            # if in_database == True:
+            #     return HttpResponseRedirect('/rsvperror/')
+            # else:
+            f = form.get_category()
+            request.session['category'] = f
+            n = form.clean_name()
+            request.session['your_name'] = n
+            return HttpResponseRedirect('/RSVP2/')
         else:
             form = RSVPFirstForm()
     else:
         pass
-    return render(request, "blog/testpage1.html", {'form': form})
+    return render(request, "blog/RSVP1.html", {'form': form})
 
 
-def FormTest(request):
+def RSVP2(request):
 
     cat = request.session['category']
     form_class = RSVPResponseForm
@@ -177,7 +146,7 @@ def FormTest(request):
                 return HttpResponseRedirect('/thanks/')
             else:
                 raise Http404
-    return render(request, "blog/form_test.html", {'form': form})
+    return render(request, "blog/RSVP2.html", {'form': form})
 
 def Four_Oh_Four(request):
 
@@ -191,7 +160,7 @@ def Four_Oh_Four(request):
         if form.is_valid():
             f = form.get_category()
             request.session['category'] = f
-            return HttpResponseRedirect('/test/')
+            return HttpResponseRedirect('/RSVP2/')
         else:
             form = RSVPFirstForm()
     else:
