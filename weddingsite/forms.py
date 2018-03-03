@@ -167,92 +167,92 @@ class RSVPResponseForm(forms.ModelForm):
 
 
 
-# class RSVPMain(forms.Form):
-#
-#     your_name = forms.CharField(label='Your name', max_length=100)
-#
-#     def clean_name(self):
-#         cleaned_name = self.data['your_name'].lower()
-#         return cleaned_name
-#
-#     def get_category(self):
-#         cleaned_name = self.clean_name()
-#
-#         if cleaned_name in HOP_W_PM:
-#             category = 'hop'
-#         elif cleaned_name in COOL_KIDS_ALL:
-#             category = 'cool-kids'
-#         elif cleaned_name in POM_WEDDING:
-#             category = 'pom'
-#         elif cleaned_name in SILK_W_S_AM:
-#             category = 'silk'
-#         elif cleaned_name in MAUI_W_S_CHOICE:
-#             category = 'maui'
-#         elif cleaned_name in SING_S_AM:
-#             category = 'sing'
-#         elif cleaned_name in SUN_W_AM:
-#             category = 'sun'
-#         elif cleaned_name in ALEX:
-#             category = 'alex'
-#         elif cleaned_name in CHEESE_W_AM_PM:
-#             category = 'cheese'
-#         elif cleaned_name in JULIA:
-#             category = 'julia'
-#         elif cleaned_name in ARI:
-#             category = 'ari'
-#         else:
-#             category = 'nameerror'
-#         return category
-#
-# class RSVPQuestions(forms.Form):
-#
-#     def __init__(self, category):
-#
-#         super().__init__()
-#
-#         if category in ['cool_kids', 'silk', 'maui', 'sing']:
-#             self.fields['shabbat'] = forms.ChoiceField(
-#             label='Will you be attending the Shabbat dinner on Friday, July 20?',
-#             choices=SHABBAT_ATTENDING_CHOICES, initial='',
-#             widget=forms.MultipleChoiceField(attrs={'class': 'form-style'}))
-#
-#         if category in ['hop', 'cool_kids', 'silk', 'maui', 'sun', 'cheese']:
-#             self.fields['welcome_dinner'] = forms.ChoiceField(
-#             label='Will you be attending the welcome dinner on Sunday, July 22?',
-#             choices=WELCOME_ATTENDING_CHOICES,
-#             initial='',
-#             widget=forms.RadioSelect(attrs={'class': 'form-style'}))
-#
-#             self.fields['welcome_dinner_food'] = forms.ChoiceField(
-#             label='For the welcome dinner, I have the following dietary restrictions:',
-#             choices=WELCOME_CHOICES, initial='',
-#             widget=forms.RadioSelect(attrs={'class': 'form-style'}))
-#
-#         if category in ['hop', 'cool_kids', 'pom', 'silk', 'maui', 'sing', 'sun', 'cheese']:
-#             self.fields['wedding'] = forms.ChoiceField(
-#             label='Will you be joining us for the wedding ceremony and reception on Monday, July 23?',
-#             choices=WEDDING_ATTENDING_CHOICES, initial='',
-#             widget=forms.RadioSelect(attrs={'class': 'form-style'}))
-#
-#             self.fields['wedding_food'] = forms.ChoiceField(
-#             label='At the wedding, I\'d like to eat',
-#             choices=WEDDING_CHOICES, initial='',
-#             widget=forms.RadioSelect(attrs={'class': 'form-style'}))
-#
-#         if category in ['cool_kids', 'silk', 'maui', 'sing', 'sun', 'cheese']:
-#             self.fields['tuesday_brunch'] = forms.ChoiceField(
-#             label='Will you be coming to brunch on Tuesday, July 24?',
-#             choices=TUES_AM_ATTENDING_CHOICES, initial='',
-#             widget=forms.RadioSelect(attrs={'class': 'form-style'}))
-#
-#         if category in ['hop', 'cool_kids', 'maui', 'cheese']:
-#             self.fields['tuesday_night'] = forms.ChoiceField(
-#             label='Will you be partying with us on Tuesday night, July 24?',
-#             choices=TUES_PM_ATTENDING_CHOICES, initial='',
-#             widget=forms.RadioSelect(attrs={'class': 'form-style'}))
-#
-#         if category in ['julia', 'ari']:
-#             self.fields['iloveyou'] = forms.CharField(label='I love you', max_length=100)
+class RSVPMain(forms.Form):
+
+    your_name = forms.CharField(label='Your name', max_length=100)
+
+    def clean_name(self):
+        cleaned_name = self.data['your_name'].lower()
+        return cleaned_name
+
+    def get_category(self):
+        cleaned_name = self.clean_name()
+
+        if cleaned_name in HOP_W_PM:
+            category = 'hop'
+        elif cleaned_name in COOL_KIDS_ALL:
+            category = 'cool-kids'
+        elif cleaned_name in POM_WEDDING:
+            category = 'pom'
+        elif cleaned_name in SILK_W_S_AM:
+            category = 'silk'
+        elif cleaned_name in MAUI_W_S_CHOICE:
+            category = 'maui'
+        elif cleaned_name in SING_S_AM:
+            category = 'sing'
+        elif cleaned_name in SUN_W_AM:
+            category = 'sun'
+        elif cleaned_name in ALEX:
+            category = 'alex'
+        elif cleaned_name in CHEESE_W_AM_PM:
+            category = 'cheese'
+        elif cleaned_name in JULIA:
+            category = 'julia'
+        elif cleaned_name in ARI:
+            category = 'ari'
+        else:
+            category = 'nameerror'
+        return category
+
+class RSVPQuestions(forms.Form):
+
+    def __init__(self, category):
+
+        super().__init__()
+
+        if category in ['cool_kids', 'silk', 'maui', 'sing']:
+            self.fields['shabbat'] = forms.ChoiceField(
+            label='Will you be attending the Shabbat dinner on Friday, July 20?',
+            choices=SHABBAT_ATTENDING_CHOICES, initial='',
+            widget=forms.MultipleChoiceField(attrs={'class': 'form-style'}))
+
+        if category in ['hop', 'cool_kids', 'silk', 'maui', 'sun', 'cheese']:
+            self.fields['welcome_dinner'] = forms.ChoiceField(
+            label='Will you be attending the welcome dinner on Sunday, July 22?',
+            choices=WELCOME_ATTENDING_CHOICES,
+            initial='',
+            widget=forms.RadioSelect(attrs={'class': 'form-style'}))
+
+            self.fields['welcome_dinner_food'] = forms.ChoiceField(
+            label='For the welcome dinner, I have the following dietary restrictions:',
+            choices=WELCOME_CHOICES, initial='',
+            widget=forms.RadioSelect(attrs={'class': 'form-style'}))
+
+        if category in ['hop', 'cool_kids', 'pom', 'silk', 'maui', 'sing', 'sun', 'cheese']:
+            self.fields['wedding'] = forms.ChoiceField(
+            label='Will you be joining us for the wedding ceremony and reception on Monday, July 23?',
+            choices=WEDDING_ATTENDING_CHOICES, initial='',
+            widget=forms.RadioSelect(attrs={'class': 'form-style'}))
+
+            self.fields['wedding_food'] = forms.ChoiceField(
+            label='At the wedding, I\'d like to eat',
+            choices=WEDDING_CHOICES, initial='',
+            widget=forms.RadioSelect(attrs={'class': 'form-style'}))
+
+        if category in ['cool_kids', 'silk', 'maui', 'sing', 'sun', 'cheese']:
+            self.fields['tuesday_brunch'] = forms.ChoiceField(
+            label='Will you be coming to brunch on Tuesday, July 24?',
+            choices=TUES_AM_ATTENDING_CHOICES, initial='',
+            widget=forms.RadioSelect(attrs={'class': 'form-style'}))
+
+        if category in ['hop', 'cool_kids', 'maui', 'cheese']:
+            self.fields['tuesday_night'] = forms.ChoiceField(
+            label='Will you be partying with us on Tuesday night, July 24?',
+            choices=TUES_PM_ATTENDING_CHOICES, initial='',
+            widget=forms.RadioSelect(attrs={'class': 'form-style'}))
+
+        if category in ['julia', 'ari']:
+            self.fields['iloveyou'] = forms.CharField(label='I love you', max_length=100)
 
 
 
