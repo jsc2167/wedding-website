@@ -1,0 +1,18 @@
+<head>
+  <meta name="rsvp-1" content="This is the first RSVP page where guests input their names" />
+</head>
+
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<form class="form-style" method="post">
+  <div class="form-group">
+    {% csrf_token %}
+      {{ form }}
+    <button class="btn btn-primary form-button">Submit</button>
+  </div>
+</form>
+
+{% endblock %}

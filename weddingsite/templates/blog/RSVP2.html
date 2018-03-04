@@ -1,0 +1,26 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+{% load static %}
+
+    <h1>RSVP</h1>
+
+<form class="RSVP-form-style" method="post" action="/RSVP2/">
+  <div class="form-group">
+    {% csrf_token %}
+
+        {% for field in form %}
+
+        <div class="space-form-style">
+            <label class="col-sm-12 control-label" for="{{ field.name }}">{{ field.label }} : </label>
+
+            <div class="col-sm-12">
+                {{ field }}
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+    <button class="btn rsvp-form-button">Submit</button>
+    <br />
+</form>
+{% endblock %}
