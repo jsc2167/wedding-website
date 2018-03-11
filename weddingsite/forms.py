@@ -147,21 +147,18 @@ class RSVPFirstForm(forms.ModelForm):
 
 class RSVPResponseForm(forms.ModelForm):
 
-    # def __init__(self, *args, **kwargs):
-    #     kwargs.setdefault('label_suffix', '')  # globally override the Django >=1.6 default of ':'
-    #     super(RSVPResponseForm, self).__init__(*args, **kwargs)
-
     def select_questions(self, cat):
-        if cat in ['hop', 'pom', 'sun', 'alex', 'cheese', 'julia', 'ari', 'nameerror']:
+        if cat in ['hop', 'pom', 'sun', 'alex', 'cheese']:
             del self.fields['shabbat_dinner']
-        if cat in ['pom', 'sing', 'julia', 'ari', 'nameerror']:
+        if cat in ['pom', 'sing']:
             del self.fields['welcome_dinner']
-        if cat in ['pom', 'sing', 'julia', 'ari', 'nameerror']:
+        if cat in ['pom', 'sing']:
             del self.fields['welcome_dietary_restrictions']
-        if cat in ['hop', 'pom', 'alex', 'julia', 'ari', 'nameerror']:
+        if cat in ['hop', 'pom', 'alex']:
             del self.fields['tues_am']
-        if cat in ['pom', 'silk', 'sing', 'sun', 'julia', 'ari', 'nameerror']:
+        if cat in ['pom', 'silk', 'sing', 'sun']:
             del self.fields['tues_pm']
+
 
     class Meta:
         model = Guest

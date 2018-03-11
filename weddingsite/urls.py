@@ -12,8 +12,6 @@ urlpatterns = [
     url(r'^about/$', views.about, name='about'),
     url(r'^hotels/$', views.hotels, name='hotels'),
     url(r'^registry/$', views.registry, name='registry'),
-    # url(r'^rsvp/$', views.RSVPInit, name='rsvp_init'),
-    # url(r'^rsvp2/$', views.RSVPSecond, name='rsvp_second'),
     url(r'^photos/$', views.photos, name='photos'),
     url(r'^error/$', views.error, name='error'),
     url(r'^schedule/$', views.schedule, name='schedule'),
@@ -36,6 +34,7 @@ urlpatterns = [
     url(r'^RSVP2/$', views.RSVP2, name='rsvp2'),
     url(r'^Four_Oh_Four/$', views.Four_Oh_Four, name='Four_Oh_Four'),
     url(r'^rsvperror/$', views.RsvpError, name='rsvperror'),
+    url(r'^JuliaAndAri/$', views.JuliaAndAri, name='juliaandari'),
     url(r'^admin/', admin.site.urls),
 ]
 

@@ -161,6 +161,10 @@ def RSVP2(request):
 
     if cat == 'nameerror':
         return HttpResponseRedirect('/Four_Oh_Four/')
+    elif cat == 'julia':
+        return HttpResponseRedirect('/JuliaAndAri')
+    elif cat == 'ari':
+        return HttpResponseRedirect('/JuliaAndAri')
     else:
         if request.method == 'GET':
             data = {'first_last' : request.session['your_name']}
@@ -201,6 +205,8 @@ def Four_Oh_Four(request):
 def event_thanks(request):
     return render(request, 'blog/event_thanks.html')
 
+def JuliaAndAri(request):
+    return render(request, 'blog/JuliaAndAri.html')
 
 # def rsvp(request, model_class=Event, form_class=RSVPForm, template_name='blog/rsvp.html'):
 #     event = get_object_or_404(model_class)
