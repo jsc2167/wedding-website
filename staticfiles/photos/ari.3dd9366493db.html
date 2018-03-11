@@ -1,0 +1,97 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("Sep 5, 2018");
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+    // Get todays date and time
+    var now = new Date();
+
+    // Find the distance between now an the count down date
+    var distance = countDownDate - now;
+
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+    // Output the result in an element with id="demo"
+    document.getElementById("demo").innerHTML = days + " days until you marry the most awesome perfect best person in the whole world."
+
+    // If the count down is over, write some text
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+    }
+}, 1000);
+</script>
+
+<h1>Hi Ari!</h1>
+<h2 id="demo"></h2>
+<p style="text-align:center">
+
+</p>
+
+
+
+<div class=row>
+  <div class="col-sm-12 col-md-6 vcenter">
+    <img class="image4" src="{% static 'photos/cake.jpg' %}">
+  </div>
+  <div class="col-sm-12 col-md-6 vcenter">
+    <span class="middle">
+      <p>You can have homemade ice cream cake for every birthday.</p>
+    </span>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 order-md-2 col-sm-12 vcenter">
+    <img class="image4" src="{% static 'photos/julia_toilet.jpg' %}">
+  </div>
+  <div class="col-md-6 order-md-1 col-sm-12 vcenter">
+    <span class="middle">
+      <p>And you can wake up to this face every day.</p>
+  </div>
+</div>
+
+<div class=row>
+  <div class="col-sm-12 col-md-6 vcenter">
+    <img class="image4 middle" src="{% static 'photos/julia_oag.jpg' %}">
+  </div>
+  <div class="col-sm-12 col-md-6 vcenter">
+    <span>
+      <p>You know Julia's always going to be very <i>very</i> excited to see you.</p>
+    </span>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 order-md-2 col-sm-12 vcenter">
+    <img class="image4" src="{% static 'photos/julia_cleaning_teeth.jpg' %}">
+  </div>
+  <div class="col-md-6 order-md-1 col-sm-12 vcenter">
+    <span class="middle">
+      <p>At the end of the day, I think we all know that you just want to sit across from this amazing person every day.</p>
+  </div>
+</div>
+
+<div class=row>
+  <div class="col-sm-12 col-md-6 vcenter">
+    <img class="image4 middle" src="{% static 'photos/julia_tongue_out.jpg' %}">
+  </div>
+  <div class="col-sm-12 col-md-6 vcenter">
+    <span>
+      <p>Ultimately though, Julia is the lucky one!</p>
+    </span>
+  </div>
+</div>
+
+<br /><br />
+
+{% endblock %}

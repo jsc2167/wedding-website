@@ -61,26 +61,31 @@ JULIA = ['julia caine']
 ARI = ['ari morcos']
 
 SHABBAT_ATTENDING_CHOICES = (
+    (None, ''),
     (True, 'Don\'t be meshuga, of course I\'ll be there!'),
     (False, 'Az och un vai! I can\'t make it!')
 )
 
 WELCOME_ATTENDING_CHOICES = (
+    (None, ''),
     (True, 'Definitely!'),
     (False, 'I won\'t be able to make it')
 )
 
 WEDDING_ATTENDING_CHOICES = (
+    (None, ''),
     (True, 'Joyfully accept'),
     (False, 'Regretfully decline'),
 )
 
 TUES_AM_ATTENDING_CHOICES = (
+    (None, ''),
     (True, 'I love brunch! Count me in!'),
     (False, 'I won\'t be able to make it.'),
 )
 
 TUES_PM_ATTENDING_CHOICES = (
+    (None, ''),
     (True, 'Fo\' sho\''),
     (False, 'I\'ve got other places to be')
 )
@@ -121,25 +126,25 @@ class Guest(models.Model):
     default='%s', max_length=128)
     shabbat_dinner = models.NullBooleanField(choices=SHABBAT_ATTENDING_CHOICES, verbose_name=
     '\nWill you be able to attend Shabbat dinner on Friday, July 20th?\n\n',
-    default=True, blank=True)
-    welcome_dinner = models.NullBooleanField(choices=WELCOME_ATTENDING_CHOICES, max_length=20, verbose_name=
+    default=None, blank=True)
+    welcome_dinner = models.NullBooleanField(choices=WELCOME_ATTENDING_CHOICES, verbose_name=
     '\nWill you be able to attend the welcome dinner on Sunday, July 22nd?\n\n',
-    default=True, blank=True)
+    default=None, blank=True)
     welcome_dietary_restrictions = models.CharField(verbose_name=
     '\nDo you have any dietary restrictions?\n\n', max_length=6,
     choices=WELCOME_CHOICES, default='None', blank=True)
     wedding = models.NullBooleanField(verbose_name=
     '\nWill you be able to attend the wedding on Monday, July 23rd?\n\n',
-    default=True, blank=True)
+    default=None, blank=True)
     wedding_meal = models.CharField(verbose_name=
     '\nAt the wedding, I would like to eat:\n\n', max_length=200,
     choices=WEDDING_CHOICES, default='malfatti', blank=True)
     tues_am = models.NullBooleanField(
     verbose_name='\nWill you be able to come to brunch on Tuesday, July 24th?\n\n',
-    default=True, blank=True)
+    default=None, blank=True)
     tues_pm = models.NullBooleanField(
     verbose_name='\nWill you be able to come to the gathering on Tuesday, July 24th?\n\n',
-    default=True, blank=True, )
+    default=None, blank=True, )
     song_request = models.TextField(
     verbose_name='I would dance if I heard this song:', default = 'YMCA by The Village People',
     blank=True, max_length=2048)

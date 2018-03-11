@@ -1,0 +1,586 @@
+h1 a {
+    color: #FFFFFF;
+    font-family: 'Spectral SC', 'Raleway', 'Vollkorn SC', 'Dancing Script';
+    text-align: center;
+}
+
+body {
+    text-align: left;
+    margin: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    justify-content: space-between;
+}
+
+html,body {
+   height:100%;
+}
+
+footer {
+  font-family: 'Raleway', 'Vollkorn SC', 'Dancing Script';
+  background: linear-gradient(+45deg, #414E5E, #A1B7CD);
+  height: 2rem;
+  color: #FFFFFF;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  padding-top: 1em;
+  padding-bottom: 2.5em;
+}
+
+.content {
+  flex: 1 0 auto;
+  min-height: 100%;
+}
+
+.centered-text {
+  display: flex;
+  height: 200px;
+  align-items: center;
+  font-family: 'Spectral SC', 'Raleway', 'Vollkorn SC', 'Dancing Script';
+  color: "black";
+}
+
+.bottom-bar {
+  display: inline-block;
+  text-align: center;
+  margin: auto;
+  font-size: 1.4em;
+  color: #58A0B8;
+}
+
+.paragraph {
+  padding-bottom: 50px;
+  display: flex;
+}
+
+.img-center {
+  margin:0 auto;
+}
+
+.image1 {
+  border-radius: 25px;
+  border-collapse: separate;
+  width: 100%;
+  object-fit: scale-down;
+  padding-bottom: 4%;
+}
+
+.image2 {
+  width: 100%;
+  height: auto;
+}
+
+.image3 {
+  float: left;
+  height: auto;
+  width: auto;
+  max-height: 600px;
+  border-radius: 25px;
+  border-collapse: separate;
+}
+
+.image4 {
+  height: auto;
+  border-radius: 25px;
+  max-height: 400px;
+  max-width: 100%;
+  margin-bottom: 4%;
+}
+
+.max_height_100 {
+  max-height: 100%;
+}
+
+.image4 .rotate_180 {
+  padding-bottom: 10%;
+}
+
+.rotate_180 {
+  transform:          rotate(180deg);
+  -ms-transform:      rotate(180deg);
+  -moz-transform:     rotate(180deg);
+  -webkit-transform:  rotate(180deg);
+  -o-transform:       rotate(180deg);
+}
+
+button, input, select, textarea {
+  font-family : inherit;
+  font-size   : 100%;
+}
+
+.form-style {
+  font-family: 'Raleway', 'Vollkorn SC', 'Dancing Script';
+  text-align: center;
+  list-style: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.errorlist {
+  list-style: none;
+}
+
+.RSVP-form-style {
+  font-family: 'Raleway', 'Vollkorn SC', 'Dancing Script';
+  text-align: left;
+  list-style: none;
+  padding-left: 15%;
+  list-style: none;
+}
+
+.space-form-style {
+  padding-left: 10%;
+  width: 80%;
+  padding-right: 10%;
+  padding-top: 10px;
+}
+
+td, th {
+  border-bottom: solid 1px black;
+  padding-bottom: 5px;
+  padding-top: 10px;
+}
+
+.form-style:first-child {
+  border-top: none;
+}
+
+.form-style:last-child {
+  border-bottom: none;
+}
+
+#id_your_name {
+  background-color: #f2f2f2;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.form-button {
+  background: linear-gradient(+45deg, #414E5E, #A1B7CD);
+  color: #FFFFFF;
+  width: 17%;
+  border: none;
+}
+
+.rsvp-form-button {
+  background: linear-gradient(+45deg, #414E5E, #A1B7CD);
+  color: #FFFFFF;
+  border: none;
+  padding-left: 40%;
+  padding-right: 40%;
+}
+
+.page-header {
+  background-image: url('Long_crop_capri_2.png');
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  max-height: 200px;
+  min-width: 100%;
+  margin: 0px 0px 2% 0px;
+  padding: 1rem 0px 1rem 0px;
+  text-align: left;
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #ffffff;
+    font-size: 4rem;
+    text-decoration: none;
+    padding-left: 90px;
+    width: 100%;
+    text-align: left;
+    top: -30%;
+}
+
+.content {
+    margin-left: 40px;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Spectral SC', 'Raleway', 'Vollkorn SC', 'Dancing Script';
+    display:block;
+    text-align: center;
+}
+
+p {
+    font-size: 16pt;
+    font-family: 'Raleway', 'Vollkorn SC', 'Dancing Script';
+    display:block;
+}
+
+.top-menu, .top-menu:hover, .top-menu:visited {
+    float: right;
+    font-size: 26pt;
+    margin-right: 20px;
+}
+
+.hamburger {
+  text-align: left;
+  padding-left: 0.7rem;
+  z-index: 2;
+  font-size: 3rem;
+  color: #FFFFFF;
+}
+
+.menu {
+  text-align: center;
+}
+
+#container_wide {
+  width: 100%;
+  display: block;
+}
+
+#container{
+    width: 50%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+.middle {
+  display: block;
+  margin: auto;
+}
+
+.center {
+    margin: auto;
+    width: 100%;
+    padding: 0 3% 0 3%;
+    position: relative;
+}
+
+#floated{
+    width: 50%;
+}
+
+.vcenter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    float: none;
+}
+@media screen and (min-width: 1025px){
+
+  .more-space-paragraph {
+    padding-bottom: 50px;
+    padding-top: 50px;
+  }
+
+  .sidenav {
+      height: 100%;
+      width: 250px;
+      position: fixed;
+      z-index: 3;
+      left: -220px;
+      font-family: 'Spectral SC', 'Raleway', 'Vollkorn SC', 'Dancing Script';
+      line-height: auto;
+      background: rgba(204, 204, 204, 0);
+      overflow-x: hidden;
+      padding-top: 60px;
+      transition: 0.3s;
+  }
+
+  .page-header .sidenav:hover {
+      width: 30%;
+      padding: 60px 8px 8px 32px;
+      left: 0;
+      top: 0;
+      text-decoration: none;
+      font-family: 'Spectral SC', 'Raleway', 'Vollkorn SC', 'Dancing Script';
+      font-size: 2rem;
+      list-style: none;
+      background: linear-gradient(+45deg, #414E5E, #A1B7CD);
+      display: block;
+      transition: 0.3s;
+      box-shadow: 8px 0px 20px #414E5E;
+  }
+
+  .sidenav a {
+    padding-bottom: 2rem;
+    display: block;
+    color: #FFFFFF;
+  }
+
+  .sidenav:hover .hamburger {
+    display: none;
+  }
+
+  .sidenav .closebtn {
+    display: none;
+  }
+}
+
+/*ipad in portrait*/
+@media only screen and (min-width : 768px) and (max-width : 1024px) and (orientation : portrait) {
+  .image3 {
+    height: auto;
+    width: 100%;
+    border-radius: 25px;
+    padding-bottom: 2%;
+  }
+}
+
+/*ipad*/
+@media only screen and (min-width : 768px) and (max-width : 1024px) {
+  .page-header {
+    margin-bottom: 5%;
+  }
+  .sidenav {
+      height: 100%;
+      width: 0px;
+      position: fixed;
+      z-index: 3;
+      overflow-x: hidden;
+  }
+  .sidenav a {
+      padding-top: 2.5rem;
+      padding-left: 0.2rem;
+      padding-right: 0;
+      padding-bottom: 0rem;
+      text-decoration: none;
+      font-family: 'Spectral SC', 'Raleway', 'Vollkorn SC', 'Dancing Script';
+      font-size: 2rem;
+      line-height: 1;
+      display: block;
+      transition: 0.3s;
+  }
+  .sidenav .closebtn {
+      position: absolute;
+      top: 1.5rem;
+      right: 25px;
+      font-size: 5rem;
+      margin-left: 50px;
+    }
+    .hamburger h1 {
+      font-size: 2.5rem;
+    }
+    #mySidenav {
+      font-family: 'Spectral SC', 'Raleway', 'Vollkorn SC', 'Dancing Script';
+      list-style: none;
+      display: block;
+      transition: 0.5s;
+      background: linear-gradient(+45deg, #414E5E, #A1B7CD);
+      height: 100%;
+      box-shadow: 8px 0px 20px #414E5E;
+    }
+    .sidenav .closebtn {
+      position: absolute;
+      top: -1.5rem;
+      right: 25px;
+      font-size: 5rem;
+      margin-left: 50px;
+    }
+}
+
+/*iphone horizontal*/
+@media only screen and (min-width: 375px) and (max-width : 667px) and (orientation : landscape) {
+  h1, h2, h3, h4 {
+    padding-bottom: 4%;
+  }
+  .page-header {
+    padding: 0 0 0 0;
+    max-height: 28%;
+    width: 100%;
+    background-image: url('capri_short_crop.png');
+  }
+  .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+      font-size: 1.6em;
+      padding-left: 5%;
+      line-height: 0.1;
+  }
+  .center {
+      width: 90%;
+      padding: 0 5% 0 5%;
+      position: relative;
+  }
+  .image3 {
+    height: auto;
+    width: auto;
+    max-height: 350px;
+    border-radius: 25px;
+    margin-left: 30%;
+    padding-bottom: 2%;
+    float: none;
+  }
+  .sidenav {
+      height: 100%;
+      width: 0px;
+      position: fixed;
+      z-index: 3;
+      overflow-x: hidden;
+      left: -50px;
+  }
+  .sidenav a {
+      padding-top: 0.05rem;
+      padding-left: 0.2rem;
+      padding-right: 0;
+      padding-bottom: 1rem;
+      text-decoration: none;
+      font-family: 'Spectral SC', 'Raleway', 'Vollkorn SC', 'Dancing Script';
+      font-size: 2rem;
+      line-height: 1;
+      display: block;
+      transition: 0.3s;
+  }
+  .sidenav .closebtn {
+      position: absolute;
+      top: -0.5rem;
+      right: 25px;
+      font-size: 5rem;
+      margin-left: 50px;
+    }
+    .hamburger h1 {
+      font-size: 2.5rem;
+    }
+    #mySidenav {
+    padding: 100px 8px 8px 20px;
+    font-family: 'Spectral SC', 'Raleway', 'Vollkorn SC', 'Dancing Script';
+    list-style: none;
+    display: block;
+    transition: 0.5s;
+    background: linear-gradient(+45deg, #414E5E, #A1B7CD);
+    box-shadow: 8px 0px 20px #414E5E;
+  }
+}
+
+/*iphone vertical*/
+@media only screen and (min-width : 325px) and (max-width : 667px) and (orientation : portrait) {
+
+  .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+      font-size: 1.2em;
+      padding-left: 5%;
+      position: fixed;
+      top: 3%;
+  }
+
+  .page-header {
+    max-height: 15%;
+    width: 100%;
+    background-image: url('capri_short_crop.png');
+    margin-bottom: 5%;
+  }
+
+  h1, h2, h3, h4 {
+    padding-top: 0px;
+    margin-top: .1em;
+    margin-bottom: .1em;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  h2 {
+    font-size: 1.4em;
+  }
+
+  h3 {
+    font-size: 1.1em;
+  }
+  p {
+    font-size: 0.9em;
+  }
+
+  .center {
+      width: 90%;
+      padding: 0 5% 0 5%;
+      position: relative;
+  }
+
+  .image3 {
+    max-width: 90%;
+    height: auto;
+    margin-left: 15px;
+  }
+
+  .sidenav {
+      height: 100%;
+      width: 0px;
+      position: fixed;
+      z-index: 3;
+      top: 0;
+      left: -50px;
+      background-color: #D2D5D6;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding: 100px 0px 8px 3px;
+      text-decoration: none;
+  }
+
+  .sidenav a {
+      padding-top: 0.05rem;
+      padding-left: 1.2rem;
+      padding-right: 0;
+      padding-bottom: 1.5rem;
+      text-decoration: none;
+      font-family: 'Spectral SC', 'Raleway', 'Vollkorn SC', 'Dancing Script';
+      font-size: 2rem;
+      line-height: 1;
+      display: block;
+      transition: 0.3s;
+  }
+
+  .sidenav .closebtn {
+      position: absolute;
+      top: -1.5rem;
+      right: 25px;
+      font-size: 5rem;
+      margin-left: 50px;
+    }
+
+    .hamburger {
+      font-size: 2rem;
+      padding-left: .5rem;
+    }
+
+    h1 {
+      padding-top: 5%;
+    }
+
+    #mySidenav {
+    padding: 100px 8px 8px 20px;
+    text-decoration: none;
+    font-family: 'Spectral SC', 'Raleway', 'Vollkorn SC', 'Dancing Script';
+    list-style: none;
+    display: block;
+    transition: 0.5s;
+    background: linear-gradient(+45deg, #414E5E, #A1B7CD);
+    box-shadow: 8px 0px 20px #414E5E;
+    line-height: normal;
+  }
+
+  footer {
+    height: 4rem;
+    font-size: 0.8em;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 20px;
+  }
+
+  .form-button {
+    width: 50%;
+    margin-top: 10%;
+  }
+
+}
+
+@media screen and (min-width: 1366px) {
+  .page-header {
+    min-height: 25%;
+  }
+}
