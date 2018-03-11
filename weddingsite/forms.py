@@ -16,7 +16,6 @@ HOP_W_PM = [
     'amanda delshad', 'amanda mintzer', 'danny mintzer',
     'celeste conrad', 'celeste holmes', 'jay holmes', 'ashley budasoff',
     'larry budasoff', 'lawrence budasoff', 'adin insoft',
-    'leah kandel', 'jacob newman', 'kendrice newman',
     'kendrice james', 'clay thibodeaux', 'tari tan', 'taralyn tan'
     'ian mclachlan', 'milner', 'elliott milner',
     'e. s. milner', 'e s milner', 'saul glasman', 'nicole neubarth',
@@ -54,7 +53,7 @@ SUN_W_AM = ['rob insoft', 'robert insoft', 'andie insoft', 'andrea insoft', 'tov
 
 ALEX = ['alex trott', 'alexander trott']
 
-CHEESE_W_AM_PM = ['dahlia greenbaum', 'daniel greenbaum',]
+CHEESE_W_AM_PM = ['dahlia greenbaum', 'daniel greenbaum', 'leah kandel', 'jacob newman', 'kendrice newman',]
 
 JULIA = ['julia caine']
 
@@ -154,7 +153,7 @@ class RSVPResponseForm(forms.ModelForm):
             del self.fields['welcome_dinner']
         if cat in ['pom', 'sing']:
             del self.fields['welcome_dietary_restrictions']
-        if cat in ['hop', 'pom', 'alex']:
+        if cat in ['hop', 'pom']:
             del self.fields['tues_am']
         if cat in ['pom', 'silk', 'sing', 'sun']:
             del self.fields['tues_pm']
