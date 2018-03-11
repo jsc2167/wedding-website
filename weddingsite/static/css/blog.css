@@ -120,6 +120,10 @@ button, input, select, textarea {
   margin-right: auto;
 }
 
+.errorlist {
+  list-style: none;
+}
+
 .RSVP-form-style {
   font-family: 'Raleway', 'Vollkorn SC', 'Dancing Script';
   text-align: left;

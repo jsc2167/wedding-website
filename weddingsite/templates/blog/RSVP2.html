@@ -10,8 +10,8 @@
 
         {% for field in form %}
 
-        <div class="space-form-style">
-            <label class="col-sm-12 control-label" for="{{ field.name }}">{{ field.label }} : </label>
+        <div class="space-form-style control-label">
+            <label class="col-sm-12" for="{{ field.name }}">{{ field.label }}  </label>
 
             <div class="col-sm-12">
                 {{ field }}
@@ -20,7 +20,7 @@
 
         {% endfor %}
     </div>
-    <button class="btn rsvp-form-button">Submit</button>
+    <button class="btn form-button middle">Submit</button>
     <br />
 </form>
 {% endblock %}

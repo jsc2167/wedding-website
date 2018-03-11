@@ -9,7 +9,7 @@ from django.template import RequestContext
 from django.shortcuts import redirect
 from django.template import Context
 from django.template.loader import get_template
-from .forms import NameForm, RSVPMain, RSVPQuestions, RSVPFirstForm, RSVPResponseForm
+from .forms import NameForm, RSVPFirstForm, RSVPResponseForm
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import RSVPFirstModel, Guest
@@ -100,34 +100,34 @@ def nameerror(request):
     return render(request, 'blog/nameerror.html', {'form': form})
 
 #make RSVP form save responses to database
-def RSVPInit(request):
-    rsvpform = RSVPMain(request.POST)
-    if request.method == 'POST':
-        rsvpform = RSVPMain(request.POST)
-
-        if rsvpform.is_valid():
-            # request.session['category'] = 'hop'
-            return HttpResponseRedirect('/rsvp2/')
-        else:
-            pass
-    else:
-        rsvpform = RSVPMain()
-
-    return render(request, 'blog/rsvp_init.html', {'rsvpform': rsvpform})
-
-def RSVPSecond(request):
-    if request.method == 'POST':
-        form = RSVPQuestions(request.POST)
-
-        if form.is_valid:
-            category = request.session['category']
-            return HttpResponseRedirect('/thanks/')
-        else:
-            pass
-    else:
-            form = RSVPQuestions(request.POST)
-
-    return render(request, 'blog/rsvp_second.html', {'form': form})
+# def RSVPInit(request):
+#     rsvpform = RSVPMain(request.POST)
+#     if request.method == 'POST':
+#         rsvpform = RSVPMain(request.POST)
+#
+#         if rsvpform.is_valid():
+#             # request.session['category'] = 'hop'
+#             return HttpResponseRedirect('/rsvp2/')
+#         else:
+#             pass
+#     else:
+#         rsvpform = RSVPMain()
+#
+#     return render(request, 'blog/rsvp_init.html', {'rsvpform': rsvpform})
+#
+# def RSVPSecond(request):
+#     if request.method == 'POST':
+#         form = RSVPQuestions(request.POST)
+#
+#         if form.is_valid:
+#             category = request.session['category']
+#             return HttpResponseRedirect('/thanks/')
+#         else:
+#             pass
+#     else:
+#             form = RSVPQuestions(request.POST)
+#
+#     return render(request, 'blog/rsvp_second.html', {'form': form})
 
 def RSVP1(request):
 
@@ -168,6 +168,7 @@ def RSVP2(request):
             f = form.select_questions(cat)
 
         if request.method == 'POST':
+            # import pdb; pdb.set_trace()
             if form.is_valid():
                 # Create a form instance from POST data.
                 form = form_class(request.POST)
@@ -175,7 +176,7 @@ def RSVP2(request):
                 form.save(commit=True)
                 return HttpResponseRedirect('/thanks/')
             else:
-                raise Http404
+                return HttpResponseRedirect('/Four_Oh_Four/')
     return render(request, "blog/RSVP2.html", {'form': form})
 
 def Four_Oh_Four(request):
