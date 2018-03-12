@@ -63,7 +63,6 @@ INSTALLED_APPS = [
     # 'weddingsite.apps.WeddingsiteConfig',
     'weddingsite',
     # 'floppyforms'
-    'import_export',
 ]
 
 MIDDLEWARE = [
