@@ -2,7 +2,6 @@ from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 import datetime
-import requests
 from django.core.exceptions import ObjectDoesNotExist, ValidationError
 from django.urls import reverse
 from django.template import RequestContext
