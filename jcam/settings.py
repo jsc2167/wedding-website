@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     # 'weddingsite.apps.WeddingsiteConfig',
     'weddingsite',
+    # 'south',
     # 'floppyforms'
 ]
 
@@ -83,6 +84,10 @@ MIDDLEWARE_CLASSES = (
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROOT_URLCONF = 'jcam.urls'
+
+# SOUTH_MIGRATION_MODULES = {
+#     'silk': 'silk.south_migrations',
+# }
 
 TEMPLATES = [
     {
@@ -106,18 +111,19 @@ WSGI_APPLICATION = 'jcam.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd6qtd5flrelgcu',
-        'USER': 'ljrlegzwqlpzds',
-        'PASSWORD': '33b0753d849f658d8244afe6166d401dcb1ac44a485f684c0ef45b7c2427f983',
-        'HOST': '',
-        'PORT': '5432',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': '',
+#         'USER': '',
+#         'PASSWORD': '',
+#         'HOST': '',
+#         'PORT': '',
+#     }
+# }
 
-# DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+# DATABASES = {}
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 # db_from_env = dj_database_url.config()
 # DATABASES['default'].update(db_from_env)
