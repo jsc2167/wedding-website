@@ -18,6 +18,6 @@ from django.contrib import admin
 from django.conf.urls import include, url
 
 urlpatterns = [
-    url(r'^pages/', include('django.contrib.flatpages.urls')),
+    # url(r'^pages/', include('django.contrib.flatpages.urls')),
     path(r'', include('weddingsite.urls')),
 ]
