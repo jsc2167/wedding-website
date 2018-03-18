@@ -108,11 +108,11 @@ WSGI_APPLICATION = 'jcam.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'rsvp_db',
-        'USER': 'juliacaine',
-        'PASSWORD': 'jul5470',
+        'NAME': 'd6qtd5flrelgcu',
+        'USER': 'ljrlegzwqlpzds',
+        'PASSWORD': '33b0753d849f658d8244afe6166d401dcb1ac44a485f684c0ef45b7c2427f983',
         'HOST': '',
-        'PORT': '',
+        'PORT': '5432',
     }
 }
 
