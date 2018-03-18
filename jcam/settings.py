@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 import dj_database_url
+import django_heroku
 # from django.conf import settings
 #
 # settings.configure(DEBUG=True)
@@ -162,3 +163,5 @@ CACHES = {
 }
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
+
+django_heroku.settings(locals())
