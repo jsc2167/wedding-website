@@ -89,6 +89,10 @@ ROOT_URLCONF = 'jcam.urls'
 #     'silk': 'silk.south_migrations',
 # }
 
+MIGRATION_MODULES = {
+    'sites': 'django.contrib.sites.migrations'
+}
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
