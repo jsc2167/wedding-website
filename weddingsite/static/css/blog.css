@@ -317,7 +317,7 @@ p {
   }
 
   .sidenav a {
-    padding-bottom: 2rem;
+    padding-bottom: 1.5rem;
     display: block;
     color: #FFFFFF;
   }
@@ -354,7 +354,7 @@ p {
       overflow-x: hidden;
   }
   .sidenav a {
-      padding-top: 2.5rem;
+      padding-top: 2rem;
       padding-left: 0.2rem;
       padding-right: 0;
       padding-bottom: 0rem;
