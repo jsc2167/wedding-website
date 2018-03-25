@@ -48,7 +48,7 @@ SING_S_AM = ['janet tanzi', 'dena glasgow', 'jason glasgow', 'heather zacker',
 'marcia wake', 'beth davis', 'maerton davis']
 
 SUN_W_AM = ['rob insoft', 'robert insoft', 'andie insoft', 'tova morcos',
-'samir morcos', 'jared kliger', 'philip freed', 'linda freed',
+'samir morcos', 'jared kliger', 'sheryl braunstein', 'philip freed', 'linda freed',
 'linda rich freed', 'linda rich', 'chris harvey', 'christopher harvey',
 'lauren orefice', 'shalva greenbaum']
 
