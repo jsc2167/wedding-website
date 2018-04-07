@@ -41,7 +41,8 @@ MAUI_W_S_CHOICE = ['mendel socolovsky', 'nils socolovsky', 'eviatar socolovsky',
 'ronli socolovsky', 'ron li socolovsky', 'tomer socolovsky']
 
 SING_S_AM = ['janet tanzi', 'dena glasgow', 'jason glasgow', 'heather zacker',
-'david harlow', 'sheryl marcus', 'alan marcus', 'marcia leifer', 'alan leifer',
+'david harlow', 'talia harlow', 'sheryl marcus', 'alan marcus',
+'marcia leifer', 'alan leifer',
 'wes gardenswartz', 'wesley gardenswartz', 'shira gardenswartz', 'merle hass',
 'sylvain korzennik', 'sue bergman', 'barry bergman', 'susan bergman',
 'vicki isman', 'marshall isman', 'michael kane', 'sue kane', 'bob wake',
@@ -128,33 +129,43 @@ class Guest(models.Model):
     app_label = 'weddingsite'
     first_last = models.CharField(verbose_name='Your name:', blank=True,
     default='%s', max_length=128)
+
     shabbat_dinner = models.NullBooleanField(choices=SHABBAT_ATTENDING_CHOICES, verbose_name=
     '\nWill you be able to attend Shabbat dinner on Friday, July 20th?\n\n',
     default=None, blank=True)
+
     welcome_dinner = models.NullBooleanField(choices=WELCOME_ATTENDING_CHOICES, verbose_name=
     '\nWill you be able to attend the welcome dinner on Sunday, July 22nd?\n\n',
     default=None, blank=True)
+
     welcome_dietary_restrictions = models.CharField(verbose_name=
     '\nDo you have any dietary restrictions?\n\n', max_length=6,
     choices=WELCOME_CHOICES, default='None', blank=True)
+
     wedding = models.NullBooleanField(verbose_name=
     '\nWill you be able to attend the wedding on Monday, July 23rd?\n\n',
     default=None, blank=True)
+
     wedding_app = models.CharField(verbose_name=
     '\nAt the wedding, I would like my appetizer to be:\n\n', max_length=200,
     choices=WEDDING_APP_CHOICES, default='artichoke', blank=True)
+
     wedding_meal = models.CharField(verbose_name=
     '\nAt the wedding, I would like my main meal to be:\n\n', max_length=200,
     choices=WEDDING_CHOICES, default='malfatti', blank=True)
+
     tues_am = models.NullBooleanField(
     verbose_name='\nWill you be able to come to brunch on Tuesday, July 24th?\n\n',
     default=None, blank=True)
+
     tues_pm = models.NullBooleanField(
     verbose_name='\nWill you be able to come to the gathering on Tuesday, July 24th?\n\n',
     default=None, blank=True, )
+
     song_request = models.TextField(
     verbose_name='I would dance if I heard this song:', default = 'YMCA by The Village People',
     blank=True, max_length=2048)
+
     comments = models.TextField(
     verbose_name='Comments for the couple!', default='I\'m so excited to come!',
     blank=True, max_length=2048, )
