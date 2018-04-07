@@ -47,7 +47,7 @@ SING_S_AM = ['janet tanzi', 'dena glasgow', 'jason glasgow', 'heather zacker',
 'vicki isman', 'marshall isman', 'michael kane', 'sue kane', 'bob wake',
 'marcia wake', 'beth davis', 'maerton davis']
 
-SUN_W_AM = ['rob insoft', 'robert insoft', 'andie insoft', 'tova morcos',
+SUN_W_AM = ['rob insoft', 'robert insoft', 'andie insoft', 'tova morcos', 'nora kavner',
 'samir morcos', 'jared kliger', 'sheryl braunstein', 'philip freed', 'linda freed',
 'linda rich freed', 'linda rich', 'chris harvey', 'christopher harvey',
 'lauren orefice', 'shalva greenbaum']
@@ -142,7 +142,7 @@ class Guest(models.Model):
     default=None, blank=True)
     wedding_app = models.CharField(verbose_name=
     '\nAt the wedding, I would like my appetizer to be:\n\n', max_length=200,
-    choices=WEDDING_APP_CHOICES, default='artichoke', blank=True) 
+    choices=WEDDING_APP_CHOICES, default='artichoke', blank=True)
     wedding_meal = models.CharField(verbose_name=
     '\nAt the wedding, I would like my main meal to be:\n\n', max_length=200,
     choices=WEDDING_CHOICES, default='malfatti', blank=True)
