@@ -26,7 +26,7 @@ class RSVPAdmin(admin.ModelAdmin):
 
     def wed_app(self, obj):
         return("%s" % (obj.wedding_app))
-    wed_food.short_description = "Wedding app"
+    wed_app.short_description = "Wedding app"
 
     def wed_food(self, obj):
         return("%s" % (obj.wedding_meal))
