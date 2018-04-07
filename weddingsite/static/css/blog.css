@@ -175,7 +175,7 @@ td, th {
 }
 
 .page-header {
-  background-image: url('Long_crop_capri_2.png');
+  background-image: url('Long_crop_capri_2_small.png');
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
@@ -402,7 +402,7 @@ p {
     padding: 0 0 0 0;
     max-height: 28%;
     width: 100%;
-    background-image: url('capri_short_crop.png');
+    background-image: url('capri_short_crop_small.png');
   }
   .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
       font-size: 1.6em;
@@ -477,7 +477,7 @@ p {
   .page-header {
     max-height: 15%;
     width: 100%;
-    background-image: url('capri_short_crop.png');
+    background-image: url('capri_short_crop_small.png');
     margin-bottom: 5%;
   }
 
