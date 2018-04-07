@@ -104,6 +104,10 @@ WEDDING_CHOICES = (
     ('curry', 'Red lentil coconut curry, grilled sweetcorn and courgette, and crisp rice balls (vegan)'),
 )
 
+WEDDING_APP_CHOICES = (
+    ('artichoke', 'Warm artichoke tart with tarragon and chervil dressing',),
+    ('beets', 'Salad of baked golden & candy beetroot, hazelnut gremolata & gorgonzola'),
+)
 
 class RSVPFirstModel(models.Model):
     your_name = models.CharField(default=None, max_length=100)
@@ -136,8 +140,11 @@ class Guest(models.Model):
     wedding = models.NullBooleanField(verbose_name=
     '\nWill you be able to attend the wedding on Monday, July 23rd?\n\n',
     default=None, blank=True)
+    wedding_app = models.CharField(verbose_name=
+    '\nAt the wedding, I would like my appetizer to be:\n\n', max_length=200,
+    choices=WEDDING_APP_CHOICES, default='artichoke', blank=True) 
     wedding_meal = models.CharField(verbose_name=
-    '\nAt the wedding, I would like to eat:\n\n', max_length=200,
+    '\nAt the wedding, I would like my main meal to be:\n\n', max_length=200,
     choices=WEDDING_CHOICES, default='malfatti', blank=True)
     tues_am = models.NullBooleanField(
     verbose_name='\nWill you be able to come to brunch on Tuesday, July 24th?\n\n',

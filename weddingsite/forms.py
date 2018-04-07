@@ -162,7 +162,8 @@ class RSVPResponseForm(forms.ModelForm):
     class Meta:
         model = Guest
         fields = ['first_last', 'shabbat_dinner',
-        'welcome_dinner', 'welcome_dietary_restrictions', 'wedding',
+        'welcome_dinner', 'welcome_dietary_restrictions',
+        'wedding', 'wedding_app',
         'wedding_meal', 'tues_am', 'tues_pm', 'song_request', 'comments']
         # label_suffix = ""
 
