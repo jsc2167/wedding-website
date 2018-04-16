@@ -4,60 +4,15 @@ from django.forms import fields, CheckboxInput, ModelForm
 from django.db import models
 from django.utils.translation import ugettext as _
 from django.core.exceptions import ObjectDoesNotExist
-from .models import WEDDING_ATTENDING_CHOICES, WELCOME_CHOICES, WEDDING_CHOICES, TUES_AM_ATTENDING_CHOICES, TUES_PM_ATTENDING_CHOICES, WELCOME_ATTENDING_CHOICES, SHABBAT_ATTENDING_CHOICES, Guest, RSVPFirstModel
+from .models import WEDDING_ATTENDING_CHOICES, WELCOME_CHOICES,
+ WEDDING_CHOICES, TUES_AM_ATTENDING_CHOICES,
+ TUES_PM_ATTENDING_CHOICES, WELCOME_ATTENDING_CHOICES,
+ SHABBAT_ATTENDING_CHOICES, Guest,
+ RSVPFirstModel, HOP_W_PM, COOL_KIDS_ALL, POM_WEDDING,
+ SILK_W_S_AM, MAUI_W_S_CHOICE, SING_S_AM, SUN_W_AM,
+ ALEX, CHEESE_W_AM_PM, JULIA, ARI
 from django.forms.formsets import formset_factory
 from django.forms.forms import NON_FIELD_ERRORS
-
-
-HOP_W_PM = [
-    'rachel insoft', 'phil masui', 'philip masui', 'mary awadallah',
-    'mary shehata', 'michael shehata', 'mike shehata', 'christina amendola',
-    'chrissy amendola', 'vince gaviria', 'vincent gaviria',
-    'amanda delshad', 'amanda mintzer', 'danny mintzer',
-    'celeste conrad', 'celeste holmes', 'jay holmes', 'ashley budasoff',
-    'larry budasoff', 'lawrence budasoff', 'adin insoft',
-    'kendrice james', 'clay thibodeaux', 'tari tan', 'taralyn tan'
-    'ian mclachlan', 'milner', 'elliott milner',
-    'e. s. milner', 'e s milner', 'saul glasman', 'nicole neubarth',
-    'alan emanuel', 'kaori graybeal', 'matthias minderer',
-    'christina welsh', 'dan millman', 'daniel millman', 'rebecca yang',
-    'alex wiltschko', 'katherine gorman', 'katie gorman', 'ryan heisler', 'etta king',
-    'etta heisler', 'rachel freed', 'william grundler', 'rachel grundler']
-
-COOL_KIDS_ALL = ['rebecca caine', 'john light', 'ben caine', 'anna caine']
-
-POM_WEDDING = ['raphael koster', 'avi ruderman', 'priya ruderman',
-'francis song', 'sam ritter', 'samuel ritter', 'cotie long', 'kim stachenfeld',
-'kimberly stachenfeld', 'neil rabinowitz', 'jo rabinowitz', 'sonia rego',
-'matt kusner', 'matthew kusner']
-
-SILK_W_S_AM = ['claire caine', 'dan caine', 'daniel caine', 'jerome socolovsky',
-'petra glimaker', 'emanuel socolovsky', 'shoshi socolovsky', 'shosh socolovsky',
-'eviatar socolovsky', 'yaara socolovsky', 'caroline ertz', 'greg ertz',
-'maria socolovsky']
-
-MAUI_W_S_CHOICE = ['mendel socolovsky', 'nils socolovsky', 'eviatar socolovsky',
-'ronli socolovsky', 'ron li socolovsky', 'tomer socolovsky']
-
-SING_S_AM = ['janet tanzi', 'dena glasgow', 'jason glasgow', 'heather zacker',
-'david harlow', 'sheryl marcus', 'alan marcus', 'marcia leifer', 'alan leifer',
-'wes gardenswartz', 'wesley gardenswartz', 'shira gardenswartz', 'merle hass',
-'sylvain korzennik', 'sue bergman', 'barry bergman', 'susan bergman',
-'vicki isman', 'marshall isman', 'michael kane', 'sue kane', 'bob wake',
-'marcia wake', 'beth davis', 'maerton davis']
-
-SUN_W_AM = ['rob insoft', 'robert insoft', 'andie insoft', 'andrea insoft', 'tova morcos',
-'samir morcos', 'jared kliger', 'philip freed', 'linda freed',
-'linda rich freed', 'linda rich', 'chris harvey', 'christopher harvey',
-'lauren orefice', 'shalva greenbaum']
-
-ALEX = ['alex trott', 'alexander trott']
-
-CHEESE_W_AM_PM = ['dahlia greenbaum', 'daniel greenbaum', 'leah kandel', 'jacob newman', 'kendrice newman',]
-
-JULIA = ['julia caine']
-
-ARI = ['ari morcos']
 
 
 class NameForm(forms.Form):
