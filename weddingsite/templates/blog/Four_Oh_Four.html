@@ -8,11 +8,11 @@
   </p>
 <br />
 
-<form class="form-style" method="post" action="/test/">
+<form class="form-style" method="post">
   <div class="form-group">
     {% csrf_token %}
-      {{ form|linebreaks }}
-    <button class="btn rsvp-form-button">Submit</button>
+      {{ form }}
+    <button class="btn btn-primary form-button">Submit</button>
   </div>
 </form>
 

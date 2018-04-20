@@ -135,11 +135,6 @@ def RSVP1(request):
 
     if request.method == 'POST':
         if form.is_valid():
-            # in_database = Guest.objects.exists()
-            # import pdb; pdb.set_trace()
-            # if in_database == True:
-            #     return HttpResponseRedirect('/nameerror/')
-            # else:
             f = form.get_category()
             request.session['category'] = f
             n = form.clean_name()
@@ -187,19 +182,35 @@ def Four_Oh_Four(request):
     form_class = RSVPFirstForm
     form = form_class(request.POST)
 
-    if request.method == 'GET':
-        form = RSVPFirstForm()
     if request.method == 'POST':
-        form = RSVPFirstForm()
         if form.is_valid():
             f = form.get_category()
             request.session['category'] = f
-            return HttpResponseRedirect('/test/')
+            n = form.clean_name()
+            request.session['your_name'] = n
+            return HttpResponseRedirect('/RSVP2/')
         else:
             form = RSVPFirstForm()
     else:
-        return HttpResponseRedirect('/thanks/')
+        pass
     return render(request, "blog/Four_Oh_Four.html", {'form': form})
+    #
+    # form_class = RSVPFirstForm
+    # form = form_class(request.POST)
+    #
+    # if request.method == 'GET':
+    #     form = RSVPFirstForm()
+    # if request.method == 'POST':
+    #     form = RSVPFirstForm()
+    #     if form.is_valid():
+    #         f = form.get_category()
+    #         request.session['category'] = f
+    #         return HttpResponseRedirect('/test/')
+    #     else:
+    #         form = RSVPFirstForm()
+    # else:
+    #     return HttpResponseRedirect('/thanks/')
+    # return render(request, "blog/Four_Oh_Four.html", {'form': form})
 
 def event_thanks(request):
     return render(request, 'blog/event_thanks.html')
