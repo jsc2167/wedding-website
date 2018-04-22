@@ -17,7 +17,7 @@ HOP_W_PM = [
     'celeste conrad', 'celeste holmes', 'jay holmes', 'ashley budasoff',
     'larry budasoff', 'lawrence budasoff', 'adin insoft',
     'leah kandel', 'jacob newman', 'kendrice newman',
-    'kendrice james', 'clay thibodeaux', 'tari tan', 'taralyn tan'
+    'kendrice james', 'clay thibodeaux', 'tari tan', 'taralyn tan',
     'ian mclachlan', 'milner', 'elliott milner',
     'e. s. milner', 'e s milner', 'saul glasman', 'nicole neubarth',
     'alan emanuel', 'kaori graybeal', 'matthias minderer',
