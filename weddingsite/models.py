@@ -28,7 +28,7 @@ HOP_W_PM = [
 COOL_KIDS_ALL = ['rebecca caine', 'john light', 'ben caine', 'anna caine']
 
 POM_WEDDING = ['raphael koster', 'avi ruderman', 'priya ruderman',
-'francis song', 'sam ritter', 'samuel ritter', 'cotie long', 'kim stachenfeld',
+'francis song', 'sam ritter', 'samuel ritter', 'cotie long', 'kim stachenfeld', 'limor gultchin',
 'kimberly stachenfeld', 'neil rabinowitz', 'jo rabinowitz', 'sonia rego',
 'matt kusner', 'matthew kusner']
 
