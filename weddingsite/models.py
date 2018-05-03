@@ -33,7 +33,7 @@ POM_WEDDING = ['raphael koster', 'avi ruderman', 'priya ruderman',
 'matt kusner', 'matthew kusner']
 
 SILK_W_S_AM = ['claire caine', 'dan caine', 'daniel caine', 'jerome socolovsky',
-'petra glimaker', 'emanuel socolovsky', 'shoshi socolovsky', 'shosh socolovsky', 'caroline ertz', 'greg ertz',
+'petra glimaker', 'petra socolovsky', 'emanuel socolovsky', 'shoshi socolovsky', 'shosh socolovsky', 'caroline ertz', 'greg ertz',
 'maria socolovsky']
 
 MAUI_W_S_CHOICE = ['mendel socolovsky', 'nils socolovsky', 'eviatar socolovsky', 'evyatar socolovsky', 'yaara socolovsky', 'ya\'ara socolovsky',
