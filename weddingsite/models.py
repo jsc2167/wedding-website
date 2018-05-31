@@ -25,7 +25,7 @@ HOP_W_PM = [
     'alex wiltschko', 'katherine gorman', 'ryan heisler', 'etta king',
     'etta heisler']
 
-COOL_KIDS_ALL = ['rebecca caine', 'john light', 'ben caine', 'anna caine']
+COOL_KIDS_ALL = ['rebecca caine', 'john light', 'ben caine', 'anna caine', 'dahlia greenbaum', 'daniel greenbaum']
 
 POM_WEDDING = ['raphael koster', 'avi ruderman', 'priya ruderman',
 'francis song', 'sam ritter', 'samuel ritter', 'cotie long', 'kim stachenfeld', 'limor gultchin',
@@ -34,7 +34,8 @@ POM_WEDDING = ['raphael koster', 'avi ruderman', 'priya ruderman',
 
 SILK_W_S_AM = ['claire caine', 'dan caine', 'daniel caine', 'jerome socolovsky',
 'petra glimaker', 'petra socolovsky', 'emanuel socolovsky', 'shoshi socolovsky', 'shosh socolovsky', 'caroline ertz', 'greg ertz',
-'maria socolovsky']
+'maria socolovsky', 'tova morcos', 'nora kavner',
+'samir morcos', 'jared kliger', 'sheryl braunstein', 'ruth crnkovich', 'shalva greenbaum']
 
 MAUI_W_S_CHOICE = ['mendel socolovsky', 'nils socolovsky', 'eviatar socolovsky', 'evyatar socolovsky', 'yaara socolovsky', 'ya\'ara socolovsky',
 'ronli socolovsky', 'ron li socolovsky', 'tomer socolovsky']
@@ -47,14 +48,13 @@ SING_S_AM = ['janet tanzi', 'dena glasgow', 'jason glasgow', 'heather zacker',
 'vicki isman', 'marshall isman', 'michael kane', 'sue kane', 'bob wake',
 'marcia wake', 'beth davis', 'maerton davis']
 
-SUN_W_AM = ['rob insoft', 'robert insoft', 'andie insoft', 'tova morcos', 'nora kavner',
-'samir morcos', 'jared kliger', 'sheryl braunstein', 'philip freed', 'linda freed',
+SUN_W_AM = ['rob insoft', 'robert insoft', 'andie insoft', 'philip freed', 'linda freed',
 'linda rich freed', 'linda rich', 'chris harvey', 'christopher harvey',
-'lauren orefice', 'shalva greenbaum']
+'lauren orefice']
 
 ALEX = ['alex trott', 'alexander trott']
 
-CHEESE_W_AM_PM = ['dahlia greenbaum', 'daniel greenbaum',]
+CHEESE_W_AM_PM = []
 
 JULIA = ['julia caine']
 
