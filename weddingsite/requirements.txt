@@ -3,7 +3,7 @@ certifi==2017.11.5
 chardet==3.0.4
 confusable-homoglyphs==2.0.2
 dj-database-url==0.4.2
-Django==2.0
+Django==2.2.13
 django-configurations==2.0
 django-freeze==0.6.4
 django-registration==2.3
